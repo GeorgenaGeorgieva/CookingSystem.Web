@@ -1,11 +1,362 @@
-/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data/bin
-/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data/obj/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data.Models/bin
-/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data.Models/obj/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data.Models/bin
-/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data.Models/obj
-/Users/Bayb/Projects/CookingSystem/CookingSystem/bin
-/Users/Bayb/Projects/CookingSystem/CookingSystem/obj
-/Users/Bayb/Projects/CookingSystem/Services/CookingSystem.Services/bin
-/Users/Bayb/Projects/CookingSystem/Services/CookingSystem.Services/obj
-/Users/Bayb/Projects/CookingSystem/Web/obj
-/Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin
-/Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/obj
+# # Игнориране на временни файлове на Visual Studio, изграждане на резултати и
+# # файлове, генерирани от популярни добавки на Visual Studio.
+# #
+# # Вземете най-новото от https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
+
+# Специфични за потребителя файлове
+* .потребител
+* .suo
+* .потребител
+* .userosscache
+* .sln.docstates
+
+# Специфични за потребителя файлове (MonoDevelop / Xamarin Studio)
+* .userprefs
+
+# Моно автоматично генерирани файлове
+mono_crash. *
+
+# Изграждане на резултати
+[ Dd ] ebug /
+[ Dd ] ebugPublic /
+[ Rr ] освобождаване /
+[ Rr ] освобождава /
+x64 /
+x86 /
+[ Aa ] [ Rr ] [ Mm ] /
+[ Aa ] [ Rr ] [ Mm ] 64 /
+bld /
+[ Bb ] в /
+[ Oo ] bj /
+[ Ll ] ог /
+[ Ll ] ogs /
+
+# Директория за кеш / опции на Visual Studio 2015/2017
+.vs /
+# Коментирайте, ако имате задачи, които създават статичните файлове на проекта в wwwroot
+# wwwroot /
+
+# Visual Studio 2017 автоматично генерирани файлове
+Генерирани \ Файлове /
+
+# Резултати от MSTest тест
+[ Tt ] est [ Rr ] esult * /
+[ Bb ] uild [ Ll ] ог. *
+
+# NUnit
+* .VisualState.xml
+TestResult.xml
+nunit- * .xml
+
+# Изграждане на резултати от ATL проект
+[ Dd ] ebugPS /
+[ Rr ] eleasePS /
+dlldata.c
+
+# Бенчмарк резултати
+BenchmarkDotNet.Artifacts /
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+артефакти /
+
+# StyleCop
+StyleCopReport.xml
+
+# Файлове, създадени от Visual Studio
+* _i.c
+* _p.c
+* _h.h
+* .ilk
+* .meta
+* .obj
+* .iobj
+* .pch
+* .pdb
+* .ipdb
+* .pgc
+* .pgd
+* .rsp
+* .sbr
+* .tlb
+* .tli
+* .tlh
+* .tmp
+* .tmp_proj
+* _wpftmp.csproj
+* .log
+* .vspscc
+* .vssscc
+.изгражда
+* .pidb
+* .svclog
+* .scc
+
+# Chutzpah Тестови файлове
+_Chutzpah *
+
+# Visual C ++ кеш файлове
+ipch /
+* .aps
+* .ncb
+* .opendb
+* .opensdf
+* .sdf
+* .cachefile
+* .VC.db
+* .VC.VC.opendb
+
+# Профилатор на Visual Studio
+* .psess
+* .vsp
+* .vspx
+* .sap
+
+# Файлове за проследяване на Visual Studio
+* .e2e
+
+# Локално работно пространство на TFS 2012
+$ tf /
+
+# Наръчник за автоматизация на насоки
+* .gpState
+
+# ReSharper е добавка за кодиране .NET
+_ReSharper * /
+* . [ Rr ] e [ Ss ] харпер
+* .DotSettings.user
+
+# TeamCity е добавка за компилация
+_TeamCity *
+
+# DotCover е инструмент за покритие на кода
+* .dotCover
+
+# AxoCover е инструмент за покритие на кода
+.axoCover / *
+! .axoCover / settings.json
+
+# Резултати от покритието на Visual Studio
+* .покритие
+* .coveragexml
+
+# NCrunch
+_NCrunch_ *
+. * crunch * .local.xml
+nCrunchTemp_ *
+
+# MightyMoose
+* .mm. *
+AutoTest.Net /
+
+# Уеб работен плот (sass)
+.sass-cache /
+
+# Изходна папка Installshield
+[ Ee ] xpress /
+
+# DocProject е добавка за генератор на документация
+DocProject / buildhelp /
+DocProject / Помощ / * .HxT
+DocProject / Помощ / * .HxC
+DocProject / Помощ / * .hhc
+DocProject / Помощ / * .hhk
+DocProject / Помощ / * .hhp
+DocProject / Помощ / Html2
+DocProject / Помощ / html
+
+# Щракнете веднъж директория
+публикувам /
+
+# Публикуване на уеб изход
+* . [ Pp ] ublish.xml
+* .azurePubxml
+# Забележка: Коментирайте следващия ред, ако искате да проверите настройките си за уеб разгръщане,
+#, но низовете за връзка с база данни (с потенциални пароли) ще бъдат нешифровани
+* .pubxml
+* .publishproj
+
+# Настройки за публикуване на уеб приложението Microsoft Azure. Коментирайте следващия ред, ако искате
+# проверете настройките си за публикуване на Azure Web App, но съдържа поверителна информация
+# в тези скриптове ще бъдат нешифровани
+PublishScripts /
+
+# NuGet пакети
+* .nupkg
+# NuGet Symbol Packages
+* .snupkg
+# Папката с пакети може да бъде игнорирана поради Възстановяване на пакети
+** / [ Pp ] извлечения / *
+# с изключение на build /, което се използва като цел на MSBuild.
+! ** / [ Pp ] ackages / build /
+# Коментирайте, ако е необходимо, но обикновено ще бъде регенериран, когато е необходимо
+# ! ** / [Pp] ackages / repositories.config
+# NuGet v3 файловете project.json създават по-невероятни файлове
+* .nuget.props
+* .nuget.targets
+
+# Изход на Microsoft Azure Build
+csx /
+* .build.csdef
+
+# Microsoft Azure Emulator
+ecf /
+rcf /
+
+# Директории и файлове на приложения на Windows Store
+Пакети с приложения /
+BundleArtifacts /
+Package.StoreAssociation.xml
+_pkginfo.txt
+* .appx
+* .appxbundle
+* .appxupload
+
+# Файлове за кеш на Visual Studio
+# файлове, завършващи на .cache, могат да бъдат игнорирани
+* . [ Cc ] болка
+# но следете директориите, завършващи на .cache
+! ? * . [ Cc ] болка /
+
+# Други
+ClientBin /
+~ $ *
+* ~
+* .dbmdl
+* .dbproj.schemaview
+* .jfm
+* .pfx
+* .publishsettings
+orleans.codegen.cs
+
+# Включването на файлове със силни имена може да представлява риск за сигурността
+# (https://github.com/github/gitignore/pull/2483#issue-259490424)
+# * .snk
+
+# Тъй като има множество работни потоци, коментирайте следващия ред, за да игнорирате bower_components
+# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
+# bower_components /
+
+# Проекти RIA / Silverlight
+Generated_Code /
+
+# Архивиране и докладване на файлове от конвертиране на стар файл на проекта
+# към по-нова версия на Visual Studio. Файлове за архивиране не са необходими,
+# защото имаме git ;-)
+_UpgradeReport_Files /
+Архивиране * /
+UpgradeLog * .XML
+UpgradeLog * .htm
+ServiceFabricBackup /
+* .rptproj.bak
+
+# SQL Server файлове
+* .mdf
+* .ldf
+* .ndf
+
+# Проекти за бизнес разузнаване
+* .rdl.data
+* .bim.layout
+* .bim_ *. Настройки
+* .rptproj.rsuser
+* - [ Bb ] ackup.rdl
+* - [ Bb ] ackup  ( [ 0-9 ] ) .rdl
+* - [ Bb ] ackup  ( [ 0-9 ] [ 0-9 ] ) .rdl
+
+# Майкрософт фалшификати
+Фалшиви сборки /
+
+# Файл за настройка на приставката GhostDoc
+* .GhostDoc.xml
+
+# Node.js Инструменти за Visual Studio
+.ntvs_analysis.dat
+node_modules /
+
+# Visual Studio 6 build log
+* .plg
+
+# Файл с опции за работното пространство на Visual Studio 6
+* .opt
+
+# Автоматично генериран файл на работно пространство на Visual Studio 6 (съдържа кои файлове са отворени и т.н.)
+* .vbw
+
+# Изход на Visual Studio LightSwitch
+** / * .HTMLClient / GeneratedArtifacts
+** / * .DesktopClient / GeneratedArtifacts
+** / * .DesktopClient / ModelManifest.xml
+** / * .Сървър / Генерирани артефакти
+** / * .Сървър / ModelManifest.xml
+_Pvt_Extensions
+
+# Мениджър на зависимост от пакети
+.paket / paket.exe
+пакет-файлове /
+
+# FAKE - F # Направете
+.fake /
+
+# CodeRush лични настройки
+.cr / личен
+
+# Инструменти на Python за Visual Studio (PTVS)
+__pycache__ /
+* .pyc
+
+# Cake - Коментирайте, ако го използвате
+# инструменти / **
+# ! tools / package.config
+
+# Tabs Studio
+* .tss
+
+# Конфигурационен файл Justrik на Telerik
+* .jmconfig
+
+# Изход за компилация на BizTalk
+* .btp.cs
+* .btm.cs
+* .odx.cs
+* .xsd.cs
+
+# Резултати от анализа на потребителския интерфейс на OpenCover
+OpenCover /
+
+# Изход за локално изпълнение на Azure Stream Analytics
+ASALocalRun /
+
+# MSBuild двоичен и структуриран дневник
+* .binlog
+
+# Конфигурационен файл за дебъгер на NVidia Nsight GPU
+* .nvuser
+
+# Работна папка MFractors (инструмент за производителност на Xamarin)
+.mfractor /
+
+# Местна история за Visual Studio
+.localhistory /
+
+# BeatPulse healthcheck temp база данни
+healthchecksdb
+
+# Архивиране на папка за инструмент за конвертиране на справка за пакети в Visual Studio 2017
+Миграция Резервно копие /
+
+# Ionide (кръстосана платформа F # VS Code tools) работна папка
+.ionide /
+
+/ Потребители / Bayb / Проекти / CookingSystem / Data / CookingSystem.Data / bin
+/ Потребители / Bayb / Проекти / CookingSystem / Data / CookingSystem.Data / obj / Users / Bayb / Projects / CookingSystem / Data / CookingSystem.Data.Models / bin
+/ Потребители / Bayb / Проекти / CookingSystem / Data / CookingSystem.Data.Models / obj / Users / Bayb / Projects / CookingSystem / Data / CookingSystem.Data.Models / bin
+/ Потребители / Bayb / Проекти / CookingSystem / Data / CookingSystem.Data.Models / obj
+/ Потребители / Bayb / Проекти / CookingSystem / CookingSystem / bin
+/ Потребители / Bayb / Проекти / CookingSystem / CookingSystem / obj
+/ Потребители / Bayb / Проекти / CookingSystem / Услуги / CookingSystem.Services / bin
+/ Потребители / Bayb / Проекти / CookingSystem / Услуги / CookingSystem.Services / obj
+/ Потребители / Bayb / Проекти / CookingSystem / Web / obj
+/ Потребители / Bayb / Проекти / CookingSystem / Web / CookingSystem.Web / bin
+/ Потребители / Bayb / Проекти / CookingSystem / Web / CookingSystem.Web / obj
