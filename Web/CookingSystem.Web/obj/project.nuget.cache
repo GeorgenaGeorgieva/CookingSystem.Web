@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2pL4rGurzzwzYsFXv26F6Esve0gGQQoN5j/KPB0l99dCcJnTBkcgqhoANaTSjyi2UkC45/OXiGjfg0RkXUIlFA==",
+  "dgSpecHash": "vRIfjG3EGAPlw8ew1SMNsbkxbfQ581CqSUXHwu5XeEQAVY65fPojDmNx8iag0vQEvyJu5FmOEXtUUOtlEX10tQ==",
   "success": true,
-  "projectFilePath": "/Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/CookingSystem.Web.csproj",
+  "projectFilePath": "/Users/Bayb/Projects/CookingSystem-WebApplication/Web/CookingSystem.Web/CookingSystem.Web.csproj",
   "expectedPackageFiles": [
     "/Users/Bayb/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/Bayb/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Bayb/Projects/CookingSystem/CookingSystem/CookingSystem.csproj",
+      "projectUniqueName": "/Users/Bayb/Projects/CookingSystem-WebApplication/CookingSystem/CookingSystem.csproj",
       "projectName": "CookingSystem",
-      "projectPath": "/Users/Bayb/Projects/CookingSystem/CookingSystem/CookingSystem.csproj",
+      "projectPath": "/Users/Bayb/Projects/CookingSystem-WebApplication/CookingSystem/CookingSystem.csproj",
       "packagesPath": "/Users/Bayb/.nuget/packages/",
-      "outputPath": "/Users/Bayb/Projects/CookingSystem/CookingSystem/obj/",
+      "outputPath": "/Users/Bayb/Projects/CookingSystem-WebApplication/CookingSystem/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/Bayb/.config/NuGet/NuGet.Config"
