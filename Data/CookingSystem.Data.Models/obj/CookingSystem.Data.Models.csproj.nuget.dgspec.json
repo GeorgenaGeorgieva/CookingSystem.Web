@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj": {}
+    "/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj": {}
   },
   "projects": {
-    "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj": {
+    "/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj",
+        "projectUniqueName": "/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj",
         "projectName": "CookingSystem.Data.Models",
-        "projectPath": "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj",
+        "projectPath": "/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj",
         "packagesPath": "/Users/Bayb/.nuget/packages/",
-        "outputPath": "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data.Models/obj/",
+        "outputPath": "/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data.Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/Bayb/.config/NuGet/NuGet.Config"
+          "/Users/Bayb/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"

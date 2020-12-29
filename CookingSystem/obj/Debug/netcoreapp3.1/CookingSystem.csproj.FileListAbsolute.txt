@@ -9,3 +9,4 @@
 /Users/Bayb/Projects/CookingSystem/CookingSystem/obj/Debug/netcoreapp3.1/CookingSystem.dll
 /Users/Bayb/Projects/CookingSystem/CookingSystem/obj/Debug/netcoreapp3.1/CookingSystem.pdb
 /Users/Bayb/Projects/CookingSystem/CookingSystem/obj/Debug/netcoreapp3.1/CookingSystem.genruntimeconfig.cache
+/Users/Bayb/Projects/CookingSystem/CookingSystem/obj/Debug/netcoreapp3.1/CookingSystem.csprojAssemblyReference.cache

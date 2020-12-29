@@ -7691,14 +7691,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Bayb/Projects/CookingSystem-WebApplication/Services/CookingSystem.Services/CookingSystem.Services.csproj",
+      "projectUniqueName": "/Users/Bayb/Projects/CookingSystem/Services/CookingSystem.Services/CookingSystem.Services.csproj",
       "projectName": "CookingSystem.Services",
-      "projectPath": "/Users/Bayb/Projects/CookingSystem-WebApplication/Services/CookingSystem.Services/CookingSystem.Services.csproj",
+      "projectPath": "/Users/Bayb/Projects/CookingSystem/Services/CookingSystem.Services/CookingSystem.Services.csproj",
       "packagesPath": "/Users/Bayb/.nuget/packages/",
-      "outputPath": "/Users/Bayb/Projects/CookingSystem-WebApplication/Services/CookingSystem.Services/obj/",
+      "outputPath": "/Users/Bayb/Projects/CookingSystem/Services/CookingSystem.Services/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/Bayb/.config/NuGet/NuGet.Config"
+        "/Users/Bayb/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
@@ -7710,8 +7710,8 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data/CookingSystem.Data.csproj": {
-              "projectPath": "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data/CookingSystem.Data.csproj"
+            "/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data/CookingSystem.Data.csproj": {
+              "projectPath": "/Users/Bayb/Projects/CookingSystem/Data/CookingSystem.Data/CookingSystem.Data.csproj"
             }
           }
         }

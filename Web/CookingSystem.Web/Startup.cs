@@ -12,9 +12,11 @@ using CookingSystem.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using CookingSystem.Data;
-using CookingSystem.Data.Models;
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using CookingSystem.Web.Mapping;
+using Microsoft.AspNetCore.Http;
 
 namespace CookingSystem.Web
 {
@@ -30,16 +32,22 @@ namespace CookingSystem.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CookiePolicyOptions>(
+                options =>
+                {
+                    options.CheckConsentNeeded = context => true;
+                    options.MinimumSameSitePolicy = SameSiteMode.None;
+                });
+
             services.AddControllersWithViews(configure =>
                 configure.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 
             services.AddDbContext<CookingSystemDbContext>(options =>
-                   options.UseSqlServer(
-                       Configuration.GetConnectionString("DefaultConnection")));
-
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultAppConnection")));
             services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(
-                       Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlite(
+                    Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<IdentityUser, IdentityRole>(
                 options =>
@@ -59,43 +67,40 @@ namespace CookingSystem.Web
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
 
-                services.AddControllersWithViews(configure =>
-                    configure.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
-
-
-                services.AddRazorPages();
-            
-            }
+            services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperConfiguration>());
+            services.AddControllersWithViews();
+            services.AddRazorPages();
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
             {
-                if (env.IsDevelopment())
-                {
-                    app.UseDeveloperExceptionPage();
-                    app.UseDatabaseErrorPage();
-                }
-                else
-                {
-                    app.UseExceptionHandler("/Home/Error");
-                    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                    app.UseHsts();
-                }
-                app.UseHttpsRedirection();
-                app.UseStaticFiles();
-
-                app.UseRouting();
-
-                app.UseAuthentication();
-                app.UseAuthorization();
-
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllerRoute(
-                        name: "default",
-                        pattern: "{controller=Home}/{action=Index}/{id?}");
-                    endpoints.MapRazorPages();
-                });
+                app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
+            });
         }
     }
+}

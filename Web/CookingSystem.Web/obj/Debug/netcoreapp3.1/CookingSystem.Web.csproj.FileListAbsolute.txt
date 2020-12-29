@@ -9,8 +9,6 @@
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/CookingSystem.Web.pdb
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/CookingSystem.Web.Views.dll
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/CookingSystem.Web.Views.pdb
-/Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Facebook.dll
-/Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
@@ -86,9 +84,9 @@
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/CookingSystem.Data.dll
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/CookingSystem.Data.Models.dll
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/CookingSystem.Services.dll
-/Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/CookingSystem.Services.pdb
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/CookingSystem.Data.pdb
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/CookingSystem.Data.Models.pdb
+/Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/bin/Debug/netcoreapp3.1/CookingSystem.Services.pdb
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/obj/Debug/netcoreapp3.1/CookingSystem.Web.csprojAssemblyReference.cache
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/obj/Debug/netcoreapp3.1/CookingSystem.Web.AssemblyInfoInputs.cache
 /Users/Bayb/Projects/CookingSystem/Web/CookingSystem.Web/obj/Debug/netcoreapp3.1/CookingSystem.Web.AssemblyInfo.cs

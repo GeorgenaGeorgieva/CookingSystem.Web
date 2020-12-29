@@ -12,6 +12,7 @@
             this.IsSuspended = false;
             this.Posts = new HashSet<Post>();
             this.Comments = new List<Comment>();
+            this.Articles = new List<Article>();
         }
 
         public bool? IsSuspended { get; set; }
@@ -23,5 +24,7 @@
         public ICollection<Post> Posts { get; set; }
 
         public ICollection<Comment> Comments { get; set; }
+
+        public ICollection<Article> Articles { get; set; }
     }
 }

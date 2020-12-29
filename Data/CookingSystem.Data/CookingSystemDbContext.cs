@@ -24,11 +24,11 @@
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Product> Products { get; set; }
-        //public DbSet<User> Users { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public override DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder modelBuilder)
         {
-         
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -79,6 +79,12 @@
                 .HasOne(e => e.Product)
                 .WithMany(e => e.Ingredients)
                 .HasForeignKey(e => e.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Article>()
+                .HasOne(e => e.User)
+                .WithMany(e => e.Articles)
+                .HasForeignKey(e => e.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);

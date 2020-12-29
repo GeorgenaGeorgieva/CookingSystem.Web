@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{28FC79AD-C4BB-4676-8098-78012D9960DD}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Web/CookingSystem.Web/Startup.cs">
+    <Files>
+      <File FileName="Web/CookingSystem.Web/Startup.cs" Line="40" Column="20" />
+      <File FileName="Web/CookingSystem.Web/Mapping/AutoMapperConfiguration.cs" Line="12" Column="13" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CookingSystem" expanded="True">
+            <Node name="Data" expanded="True">
+              <Node name="CookingSystem.Data" expanded="True" />
+              <Node name="CookingSystem.Data.Models" expanded="True" />
+            </Node>
+            <Node name="Services" expanded="True" />
+            <Node name="Web" expanded="True">
+              <Node name="CookingSystem.Web" expanded="True">
+                <Node name="Mapping" expanded="True" />
+                <Node name="Startup.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.CookingSystem PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>Web/CookingSystem.Web/CookingSystem.Web1.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Web.CookingSystem.Web PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
