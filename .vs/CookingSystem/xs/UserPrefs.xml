@@ -1,25 +1,9 @@
 ﻿<Properties StartupConfiguration="{28FC79AD-C4BB-4676-8098-78012D9960DD}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Web/CookingSystem.Web/Startup.cs">
-    <Files>
-      <File FileName="Web/CookingSystem.Web/Startup.cs" Line="40" Column="20" />
-      <File FileName="Web/CookingSystem.Web/Mapping/AutoMapperConfiguration.cs" Line="12" Column="13" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CookingSystem" expanded="True">
-            <Node name="Data" expanded="True">
-              <Node name="CookingSystem.Data" expanded="True" />
-              <Node name="CookingSystem.Data.Models" expanded="True" />
-            </Node>
-            <Node name="Services" expanded="True" />
-            <Node name="Web" expanded="True">
-              <Node name="CookingSystem.Web" expanded="True">
-                <Node name="Mapping" expanded="True" />
-                <Node name="Startup.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
+          <Node name="CookingSystem" expanded="True" />
         </State>
       </Pad>
     </Pads>

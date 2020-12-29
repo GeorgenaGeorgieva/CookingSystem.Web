@@ -1,0 +1,44 @@
+﻿@model IList<CategoryListingViewModel>
+@{
+    ViewData["Title"] = "All";
+}
+
+<!DOCTYPE html>
+<h2>Categories</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th class="text-center">
+                <a class="btn btn-success float-right btn-md" asp-controller="Categories" asp-action="Create">Create</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var category in Model)
+        {
+            <tr>
+                <td>
+                    @category.Name
+                </td>
+                @*<td>
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@product.Id" class="float-right btn btn-info">Детайли</a>
+                    <a asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id" class="float-right btn btn-danger">Изтрий</a>
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+@*<div>
+    @if (!Model.PreviousDisabled)
+    {
+        <a href="/Products/All?page=@Model.PreviousPage" class="float-left btn btn-primary">&#60;&#60;</a>
+    }
+    @if (!Model.NextDisabled)
+    {
+        <a href="/Products/All?page=@Model.NextPage" class="float-right btn btn-primary">&#62;&#62;</a>
+    }
+</div>*@
+

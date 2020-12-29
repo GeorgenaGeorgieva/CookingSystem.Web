@@ -17,6 +17,8 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using CookingSystem.Web.Mapping;
 using Microsoft.AspNetCore.Http;
+using CookingSystem.Services.Implementations;
+using CookingSystem.Services;
 
 namespace CookingSystem.Web
 {
@@ -70,6 +72,8 @@ namespace CookingSystem.Web
             services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperConfiguration>());
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddTransient<ICategoryService, CategoryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
