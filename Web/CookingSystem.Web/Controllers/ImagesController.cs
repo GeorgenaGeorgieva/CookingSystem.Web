@@ -29,10 +29,12 @@ namespace CookingSystem.Web.Controllers
         {
             var images = this.context
                 .Images
-                .Select(x => new ImageModel
-            {
-                Name = x.Name,
-            }).ToList();
+                .Select(x => new ImageViewModel
+                {
+                    Id = x.Id,
+                    Name = x.Name
+                }).ToList();
+
             return this.View(images);
         }
 
@@ -57,11 +59,11 @@ namespace CookingSystem.Web.Controllers
             string extension = Path.GetExtension(imageModel.ImageFile.FileName);
             imageModel.Name = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
             string path = Path.Combine(wwwRootPath + "/img/", fileName);
+
             using (var fileStream = new FileStream(path, FileMode.Create))
             {
                 await imageModel.ImageFile.CopyToAsync(fileStream);
             }
-            //Insert record
 
             var image = this.mapper.Map<Image>(imageModel);
             this.context.Add(image);

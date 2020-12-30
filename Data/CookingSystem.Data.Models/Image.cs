@@ -15,10 +15,6 @@
         [Required]
         public string Name { get; set; }
 
-        [NotMapped]
-        [DisplayName("Upload File")]
-        public IFormFile ImageFile { get; set; }
-
         public bool IsDeleted { get; set; }
 
         public Recipe Recipe { get; set; }
