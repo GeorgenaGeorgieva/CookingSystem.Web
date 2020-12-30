@@ -8,5 +8,6 @@
     {
         void CreateNew(Category category);
         IEnumerable<Category> Listing();
+        void DeleteCategory(int id);
     }
 }

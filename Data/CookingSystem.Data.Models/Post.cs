@@ -16,6 +16,8 @@
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public Recipe Recipe { get; set; }
 
         public int RecipeId { get; set; }

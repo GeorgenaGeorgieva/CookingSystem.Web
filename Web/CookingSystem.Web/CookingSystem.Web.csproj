@@ -36,5 +36,7 @@
         <Folder Include="Mapping\" />
         <Folder Include="Models\Categories\" />
         <Folder Include="Views\Categories\" />
+        <Folder Include="Models\Images\" />
+        <Folder Include="Views\Images\" />
     </ItemGroup>
 </Project>

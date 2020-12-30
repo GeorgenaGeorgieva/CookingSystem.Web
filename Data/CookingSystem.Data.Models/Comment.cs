@@ -18,6 +18,8 @@
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public string UserId { get; set; }
 
         public User User { get; set; }

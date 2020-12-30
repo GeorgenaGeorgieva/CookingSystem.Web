@@ -1,16 +1,16 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using AutoMapper;
-using CookingSystem.Data.Models;
-using CookingSystem.Services;
-using CookingSystem.Web.Models;
-using CookingSystem.Web.Models.Categories;
-using Microsoft.AspNetCore.Mvc;
-using AutoMapper.QueryableExtensions;
-
-namespace CookingSystem.Web.Controllers
+﻿namespace CookingSystem.Web.Controllers
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using AutoMapper;
+    using CookingSystem.Data.Models;
+    using CookingSystem.Services;
+    using CookingSystem.Web.Models;
+    using CookingSystem.Web.Models.Categories;
+    using Microsoft.AspNetCore.Mvc;
+    using AutoMapper.QueryableExtensions;
+
     public class CategoriesController : Controller
     {
         private ICategoryService categories;
@@ -51,6 +51,13 @@ namespace CookingSystem.Web.Controllers
                 .ToList();
 
             return this.View(categoriesViewModel);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            this.categories.DeleteCategory(id);
+
+            return this.RedirectToAction("All", "Categories");
         }
     }
 }

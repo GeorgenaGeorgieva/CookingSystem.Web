@@ -5,6 +5,7 @@
     using CookingSystem.Data.Models;
     using CookingSystem.Web.Models;
     using CookingSystem.Web.Models.Categories;
+    using CookingSystem.Web.Models.Images;
 
     public class AutoMapperConfiguration : Profile
     {
@@ -14,6 +15,9 @@
                 .ForMember(x => x.Name, y => y.MapFrom(s => s.Name));
 
             this.CreateMap<Category, CategoryListingViewModel>()
+                .ForMember(x => x.Name, y => y.MapFrom(s => s.Name));
+
+            this.CreateMap<ImageModel, Image>()
                 .ForMember(x => x.Name, y => y.MapFrom(s => s.Name));
         }
     }

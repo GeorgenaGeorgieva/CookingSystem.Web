@@ -24,9 +24,23 @@
             this.context.SaveChanges();
         }
 
+        public void DeleteCategory(int id)
+        {
+            var category = this.context
+                .Categories
+                .Where(x => x.IsDeleted == false)
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            category.IsDeleted = true;
+
+            this.context.SaveChanges();
+        }
+
         public IEnumerable<Category> Listing()
         => this.context
             .Categories
+            .Where(x => x.IsDeleted == false)
             .Select(x => new Category
             {
                 Id = x.Id,

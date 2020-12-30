@@ -21,9 +21,7 @@
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Image> Images { get; set; }
-        public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        public DbSet<Product> Products { get; set; }
         public DbSet<Article> Articles { get; set; }
         public override DbSet<User> Users { get; set; }
 
@@ -63,22 +61,11 @@
                 .HasForeignKey<Recipe>(e => e.PostId)
                 .OnDelete(DeleteBehavior.Restrict);
                 
-            builder.Entity<Recipe>()
-                .HasMany(e => e.Ingredients)
-                .WithOne(e => e.Recipe)
-                .HasForeignKey(e => e.RecipeId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Recipe>()
                 .HasMany(e => e.Images)
                 .WithOne(e => e.Recipe)
                 .HasForeignKey(e => e.RecipeId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<Ingredient>()
-                .HasOne(e => e.Product)
-                .WithMany(e => e.Ingredients)
-                .HasForeignKey(e => e.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Article>()

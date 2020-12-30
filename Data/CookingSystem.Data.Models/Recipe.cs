@@ -8,7 +8,6 @@
     {
         public Recipe()
         {
-            this.Ingredients = new List<Ingredient>();
             this.Images = new List<Image>();
         }
 
@@ -27,6 +26,8 @@
 
         public DifficultyLevel Level { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public Category Category { get; set; }
 
         public int CategoryId { get; set; }
@@ -35,7 +36,9 @@
 
         public int PostId { get; set; }
 
-        public ICollection<Ingredient> Ingredients { get; set; }
+        [Required]
+        [MaxLength(3000)]
+        public string ContentIngredients { get; set; }
 
         public ICollection<Image> Images { get; set; }
     }
