@@ -1,0 +1,9 @@
+D:\Projects\CookingSystem\Data\CookingSystem.Data.Models\bin\Debug\netstandard2.1\CookingSystem.Data.Models.deps.json
+D:\Projects\CookingSystem\Data\CookingSystem.Data.Models\bin\Debug\netstandard2.1\CookingSystem.Data.Models.dll
+D:\Projects\CookingSystem\Data\CookingSystem.Data.Models\bin\Debug\netstandard2.1\CookingSystem.Data.Models.pdb
+D:\Projects\CookingSystem\Data\CookingSystem.Data.Models\obj\Debug\netstandard2.1\CookingSystem.Data.Models.csprojAssemblyReference.cache
+D:\Projects\CookingSystem\Data\CookingSystem.Data.Models\obj\Debug\netstandard2.1\CookingSystem.Data.Models.AssemblyInfoInputs.cache
+D:\Projects\CookingSystem\Data\CookingSystem.Data.Models\obj\Debug\netstandard2.1\CookingSystem.Data.Models.AssemblyInfo.cs
+D:\Projects\CookingSystem\Data\CookingSystem.Data.Models\obj\Debug\netstandard2.1\CookingSystem.Data.Models.csproj.CoreCompileInputs.cache
+D:\Projects\CookingSystem\Data\CookingSystem.Data.Models\obj\Debug\netstandard2.1\CookingSystem.Data.Models.dll
+D:\Projects\CookingSystem\Data\CookingSystem.Data.Models\obj\Debug\netstandard2.1\CookingSystem.Data.Models.pdb

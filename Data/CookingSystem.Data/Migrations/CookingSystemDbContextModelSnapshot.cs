@@ -99,7 +99,7 @@ namespace CookingSystem.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PostId")
+                    b.Property<int>("RecipeId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -107,7 +107,7 @@ namespace CookingSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PostId");
+                    b.HasIndex("RecipeId");
 
                     b.HasIndex("UserId");
 
@@ -138,32 +138,6 @@ namespace CookingSystem.Data.Migrations
                     b.ToTable("Images");
                 });
 
-            modelBuilder.Entity("CookingSystem.Data.Models.Post", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("RecipeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Posts");
-                });
-
             modelBuilder.Entity("CookingSystem.Data.Models.Recipe", b =>
                 {
                     b.Property<int>("Id")
@@ -182,6 +156,9 @@ namespace CookingSystem.Data.Migrations
                     b.Property<int>("CookingTime")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -196,19 +173,18 @@ namespace CookingSystem.Data.Migrations
                     b.Property<int>("Portion")
                         .HasColumnType("int");
 
-                    b.Property<int>("PostId")
-                        .HasColumnType("int");
-
                     b.Property<string>("PreparationMethod")
                         .HasColumnType("nvarchar(500)")
                         .HasMaxLength(500);
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("PostId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Recipes");
                 });
@@ -427,9 +403,9 @@ namespace CookingSystem.Data.Migrations
 
             modelBuilder.Entity("CookingSystem.Data.Models.Comment", b =>
                 {
-                    b.HasOne("CookingSystem.Data.Models.Post", "Post")
+                    b.HasOne("CookingSystem.Data.Models.Recipe", "Recipe")
                         .WithMany("Comments")
-                        .HasForeignKey("PostId")
+                        .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -447,14 +423,6 @@ namespace CookingSystem.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("CookingSystem.Data.Models.Post", b =>
-                {
-                    b.HasOne("CookingSystem.Data.Models.User", "User")
-                        .WithMany("Posts")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
             modelBuilder.Entity("CookingSystem.Data.Models.Recipe", b =>
                 {
                     b.HasOne("CookingSystem.Data.Models.Category", "Category")
@@ -463,11 +431,10 @@ namespace CookingSystem.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("CookingSystem.Data.Models.Post", "Post")
-                        .WithOne("Recipe")
-                        .HasForeignKey("CookingSystem.Data.Models.Recipe", "PostId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                    b.HasOne("CookingSystem.Data.Models.User", "User")
+                        .WithMany("Recipes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

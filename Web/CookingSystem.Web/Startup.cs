@@ -19,6 +19,8 @@ using CookingSystem.Web.Mapping;
 using Microsoft.AspNetCore.Http;
 using CookingSystem.Services.Implementations;
 using CookingSystem.Services;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using CookingSystem.Data.Models;
 
 namespace CookingSystem.Web
 {
@@ -44,10 +46,10 @@ namespace CookingSystem.Web
             services.AddControllersWithViews(configure =>
                 configure.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 
-            services.AddDbContext<CookingSystemDbContext>(options =>
+            services.AddDbContext<CookingSystem.Data.CookingSystemDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultAppConnection")));
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<Data.ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
 
@@ -73,7 +75,9 @@ namespace CookingSystem.Web
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IRecipeService, RecipeService>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

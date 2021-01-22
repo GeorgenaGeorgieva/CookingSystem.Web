@@ -9,9 +9,13 @@
         public Recipe()
         {
             this.Images = new List<Image>();
+            this.Comments = new HashSet<Comment>();
         }
 
         public int Id { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }
 
         [Required]
         [MaxLength(30)]
@@ -29,17 +33,17 @@
         public bool IsDeleted { get; set; }
 
         public Category Category { get; set; }
-
         public int CategoryId { get; set; }
 
-        public Post Post { get; set; }
-
-        public int PostId { get; set; }
+        public User User { get; set; }
+        public string UserId { get; set; }
 
         [Required]
         [MaxLength(3000)]
         public string ContentIngredients { get; set; }
 
         public ICollection<Image> Images { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
     }
 }

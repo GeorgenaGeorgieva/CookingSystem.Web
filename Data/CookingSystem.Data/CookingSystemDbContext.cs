@@ -19,7 +19,6 @@
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<Post> Posts { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Article> Articles { get; set; }
@@ -43,24 +42,17 @@
                 .HasForeignKey(e => e.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<Post>()
+            builder.Entity<Recipe>()
                 .HasMany(e => e.Comments)
-                .WithOne(e => e.Post)
-                .HasForeignKey(e => e.PostId)
+                .WithOne(e => e.Recipe)
+                .HasForeignKey(e => e.RecipeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<Post>()
+            builder.Entity<Recipe>()
                 .HasOne(e => e.User)
-                .WithMany(e => e.Posts)
+                .WithMany(e => e.Recipes)
                 .HasForeignKey(e => e.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<Post>()
-                .HasOne(e => e.Recipe)
-                .WithOne(e => e.Post)
-                .HasForeignKey<Recipe>(e => e.PostId)
-                .OnDelete(DeleteBehavior.Restrict);
-                
 
             builder.Entity<Recipe>()
                 .HasMany(e => e.Images)

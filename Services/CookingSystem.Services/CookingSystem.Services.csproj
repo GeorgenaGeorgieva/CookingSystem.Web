@@ -1,13 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\CookingSystem.Data\CookingSystem.Data.csproj" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
   </ItemGroup>
+
   <ItemGroup>
-    <Folder Include="Implementations\" />
+    <ProjectReference Include="..\..\Data\CookingSystem.Data\CookingSystem.Data.csproj" />
   </ItemGroup>
 </Project>
