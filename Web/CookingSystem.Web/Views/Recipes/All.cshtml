@@ -1,0 +1,96 @@
+﻿@model IEnumerable<CookingSystem.Web.Models.Recipes.RecipeViewModel>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CookingTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Portion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContentIngredients)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreparationMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var recipe in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.PostedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.CookingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.Portion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.Level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.ContentIngredients)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.PreparationMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.UserId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |
+                <a class="btn btn-info" asp-action="Details" asp-controller="Recipes" asp-route-id="@recipe.Id">Details</a>
+                <a class="btn btn-info" asp-action="AddImage" asp-controller="Images" asp-route-recipeId="@recipe.Id">Images</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

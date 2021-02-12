@@ -1,0 +1,16 @@
+D:\Projects\CookingSystem\Services\CookingSystem.Services\bin\Debug\netstandard2.1\CookingSystem.Services.deps.json
+D:\Projects\CookingSystem\Services\CookingSystem.Services\bin\Debug\netstandard2.1\CookingSystem.Services.dll
+D:\Projects\CookingSystem\Services\CookingSystem.Services\bin\Debug\netstandard2.1\CookingSystem.Services.pdb
+D:\Projects\CookingSystem\Services\CookingSystem.Services\bin\Debug\netstandard2.1\CookingSystem.Data.dll
+D:\Projects\CookingSystem\Services\CookingSystem.Services\bin\Debug\netstandard2.1\CookingSystem.Data.Models.dll
+D:\Projects\CookingSystem\Services\CookingSystem.Services\bin\Debug\netstandard2.1\CookingSystem.Data.pdb
+D:\Projects\CookingSystem\Services\CookingSystem.Services\bin\Debug\netstandard2.1\CookingSystem.Data.Models.pdb
+D:\Projects\CookingSystem\Services\CookingSystem.Services\obj\Debug\netstandard2.1\CookingSystem.Services.csprojAssemblyReference.cache
+D:\Projects\CookingSystem\Services\CookingSystem.Services\obj\Debug\netstandard2.1\CookingSystem.Services.AssemblyInfoInputs.cache
+D:\Projects\CookingSystem\Services\CookingSystem.Services\obj\Debug\netstandard2.1\CookingSystem.Services.AssemblyInfo.cs
+D:\Projects\CookingSystem\Services\CookingSystem.Services\obj\Debug\netstandard2.1\CookingSystem.Services.csproj.CoreCompileInputs.cache
+D:\Projects\CookingSystem\Services\CookingSystem.Services\obj\Debug\netstandard2.1\CookingSystem.Services.csproj.CopyComplete
+D:\Projects\CookingSystem\Services\CookingSystem.Services\obj\Debug\netstandard2.1\CookingSystem.Services.dll
+D:\Projects\CookingSystem\Services\CookingSystem.Services\obj\Debug\netstandard2.1\CookingSystem.Services.pdb
+D:\Projects\CookingSystem\Services\CookingSystem.Services\bin\Debug\netstandard2.1\CookingSystem.Services.Models.dll
+D:\Projects\CookingSystem\Services\CookingSystem.Services\bin\Debug\netstandard2.1\CookingSystem.Services.Models.pdb
