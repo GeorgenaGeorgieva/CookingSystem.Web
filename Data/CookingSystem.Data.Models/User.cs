@@ -10,8 +10,9 @@
         public User()
         {
             this.IsSuspended = false;
-            this.Posts = new HashSet<Post>();
+            this.Recipes = new List<Recipe>();
             this.Comments = new List<Comment>();
+            this.Articles = new List<Article>();
         }
 
         public bool? IsSuspended { get; set; }
@@ -20,8 +21,10 @@
         [MaxLength(100)]
         public string Name { get; set; }
 
-        public ICollection<Post> Posts { get; set; }
-
         public ICollection<Comment> Comments { get; set; }
+
+        public ICollection<Article> Articles { get; set; }
+
+        public ICollection<Recipe> Recipes { get; set; }
     }
 }

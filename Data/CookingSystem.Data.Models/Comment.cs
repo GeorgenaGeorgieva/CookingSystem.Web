@@ -18,13 +18,14 @@
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public string UserId { get; set; }
 
         public User User { get; set; }
 
-        public int PostId { get; set; }
+        public Recipe Recipe { get; set; }
 
-        public Post Post { get; set; }
-
+        public int RecipeId { get; set; }
     }
 }

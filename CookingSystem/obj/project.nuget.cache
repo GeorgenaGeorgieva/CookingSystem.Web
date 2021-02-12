@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SK5pw5LJmcp5i9+SG4HtVOm+8P6jeHHj8HPlfVs8a/8wytVuHSwxZ2xNJDu2dU5rwAHxQABwbL8tCryqJCibhg==",
+  "dgSpecHash": "ZbwyxEqhtTeOXlZOw6mwPgHnCv+zXOSMnLzEtFKo/alqCtyhuYi8iq+XfOj+Qh4XDMTzx1jxLIldPiRFXtFPEg==",
   "success": true,
-  "projectFilePath": "/Users/Bayb/Projects/CookingSystem-WebApplication/CookingSystem/CookingSystem.csproj",
+  "projectFilePath": "D:\\Projects\\CookingSystem\\CookingSystem\\CookingSystem.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj": {}
+    "D:\\Projects\\CookingSystem\\Data\\CookingSystem.Data.Models\\CookingSystem.Data.Models.csproj": {}
   },
   "projects": {
-    "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj": {
+    "D:\\Projects\\CookingSystem\\Data\\CookingSystem.Data.Models\\CookingSystem.Data.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj",
+        "projectUniqueName": "D:\\Projects\\CookingSystem\\Data\\CookingSystem.Data.Models\\CookingSystem.Data.Models.csproj",
         "projectName": "CookingSystem.Data.Models",
-        "projectPath": "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data.Models/CookingSystem.Data.Models.csproj",
-        "packagesPath": "/Users/Bayb/.nuget/packages/",
-        "outputPath": "/Users/Bayb/Projects/CookingSystem-WebApplication/Data/CookingSystem.Data.Models/obj/",
+        "projectPath": "D:\\Projects\\CookingSystem\\Data\\CookingSystem.Data.Models\\CookingSystem.Data.Models.csproj",
+        "packagesPath": "C:\\Users\\Fobos\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\CookingSystem\\Data\\CookingSystem.Data.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/Bayb/.config/NuGet/NuGet.Config"
+          "C:\\Users\\Fobos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

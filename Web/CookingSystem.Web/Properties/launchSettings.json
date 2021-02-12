@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:30896",
-      "sslPort": 44359
+      "applicationUrl": "http://localhost:1649",
+      "sslPort": 44391
     }
   },
   "profiles": {
@@ -18,7 +18,7 @@
     "CookingSystem.Web": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:47549;http://localhost:21832",
+      "applicationUrl": "https://localhost:47912;http://localhost:5386",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
