@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <UserSecretsId>aspnet-CookingSystem.Web-FB008C4C-0634-48BF-8664-7E4BA0E1C103</UserSecretsId>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.10" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10" />
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.2.5" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\Data\CookingSystem.Data\CookingSystem.Data.csproj">
+            <GlobalPropertiesToRemove>
+            </GlobalPropertiesToRemove>
+        </ProjectReference>
+        <ProjectReference Include="..\..\Data\CookingSystem.Data.Models\CookingSystem.Data.Models.csproj">
+            <GlobalPropertiesToRemove>
+            </GlobalPropertiesToRemove>
+        </ProjectReference>
+        <ProjectReference Include="..\..\Services\CookingSystem.Services\CookingSystem.Services.csproj">
+            <GlobalPropertiesToRemove>
+            </GlobalPropertiesToRemove>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="wwwroot\img\" />
+        <Folder Include="Mapping\" />
+        <Folder Include="Models\Categories\" />
+        <Folder Include="Views\Categories\" />
+    </ItemGroup>
+</Project>

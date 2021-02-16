@@ -1,0 +1,69 @@
+﻿@model CookingSystem.Web.Models.Recipes.RecipeViewModel
+@using CookingSystem.Data.Models
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+        <h4>Create а recipe</h4>
+        <hr />
+        <div class="row justify-content-xl-center">
+            <div class="col-md-6">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CategoryId" class="control-label"></label>
+                        <select asp-for="CategoryId" class="form-control">
+                            @foreach (var category in Model.Categories)
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CookingTime" class="control-label"></label>
+                        <input asp-for="CookingTime" class="form-control" min="0" />
+                        <span asp-validation-for="CookingTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Portion" class="control-label"></label>
+                        <input asp-for="Portion" class="form-control" min="0" />
+                        <span asp-validation-for="Portion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Level"></label>
+                        <select asp-for="@Model.Level" asp-items="@Html.GetEnumSelectList<DifficultyLevel>()" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ContentIngredients" class="control-label"></label>
+                        <textarea asp-for="ContentIngredients" class="form-control" maxlength="1000" style="height:250px"></textarea>
+                        <span asp-validation-for="ContentIngredients" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PreparationMethod" class="control-label"></label>
+                        <textarea asp-for="PreparationMethod" class="form-control" maxlength="1000" style="height:250px"></textarea>
+                        <span asp-validation-for="PreparationMethod" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <a class="btn btn-info" asp-action="All">Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+</html>
