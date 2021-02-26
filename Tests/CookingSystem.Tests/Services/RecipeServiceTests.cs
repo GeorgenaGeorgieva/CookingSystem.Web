@@ -7,12 +7,14 @@
     using CookingSystem.Tests.Mocks;
     using NUnit.Framework;
     using System;
+    using System.Linq;
 
     [TestFixture]
     public class RecipeServiceTests
     {
         private CookingSystemDbContext context;
         private IRecipeService recipeService;
+
         [SetUp]
         public void Setup()
         {
@@ -103,5 +105,27 @@
                 Throws.ArgumentException.With.Message.EqualTo("Content Ingredients property cannot be null."));
         }
 
+        [Test]
+        public void CreateRecipeMethodShouldAddRecipeCorrectly()
+        {
+            var recipe = new Recipe
+            {
+                Id = 1,
+                Name = "Soup",
+                Date = DateTime.Now,
+                CategoryId = 1,
+                CookingTime = 20,
+                Portion = 4,
+                Level = DifficultyLevel.Low,
+                ContentIngredients = "onion, oil, salt",
+                PreparationMethod = "abc",
+                UserId = "currentUserId"
+            };
+
+            this.recipeService.Create(recipe);
+            var allRecipes = this.context.Recipes.ToList();
+
+            Assert.AreEqual(1, allRecipes.Count);
+        }
     }
 }

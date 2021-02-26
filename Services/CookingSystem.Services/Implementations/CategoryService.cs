@@ -58,6 +58,12 @@
             this.context.SaveChanges();
         }
 
+        public Category GetCategoryByName(string name)
+        => this.context.Categories
+            .Where(x => x.IsDeleted == false)
+            .Where(x => x.Name.ToLower() == name.ToLower())
+            .FirstOrDefault();
+
         public IEnumerable<Category> Listing()
         => this.context
             .Categories

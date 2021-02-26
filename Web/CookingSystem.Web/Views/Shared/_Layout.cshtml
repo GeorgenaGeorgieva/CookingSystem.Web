@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="~/bootstrap/_variables.scss" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/fontawesome/css/all.css" rel="stylesheet">
+    <link href="~/fontawesome/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -32,14 +34,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Recipes" asp-action="All">Recipes</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Recipes" asp-action="Create">CreateRecipe</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Options</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-controller="Recipes" asp-action="Create">Create new recipe</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Recipes" asp-action="MyRecipes">Get my recipes</a>
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container jumbotron">
         <main role="main" class="pb-3">
             @RenderBody()

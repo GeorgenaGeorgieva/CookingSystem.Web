@@ -39,6 +39,12 @@
 
             this.CreateMap<RecipeDetailsServiceModel, RecipeDetailsViewModel>()
                 .ForMember(x => x.Name, y => y.MapFrom(s => s.Name));
+
+            this.CreateMap<RecipeDetailsServiceModel, RecipeEditInputModel>()
+                .ForMember(x => x.Name, y => y.MapFrom(s => s.Name));
+
+            this.CreateMap<RecipeEditInputModel, RecipeEditServiceModel>()
+                .ForMember(x => x.Id, y => y.MapFrom(s => s.Id));
         }
     }
 }

@@ -4,6 +4,7 @@
     using CookingSystem.Data;
     using CookingSystem.Data.Models;
     using CookingSystem.Services;
+    using CookingSystem.Services.Models.Recipes;
     using CookingSystem.Web.Data;
     using CookingSystem.Web.Models.Images;
     using CookingSystem.Web.Models.Recipes;
@@ -81,7 +82,7 @@
         [Authorize]
         public IActionResult Create(RecipeInputModel model)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.View();
             }
@@ -172,6 +173,46 @@
                 .ToList();
 
             return this.View(myRecipesViewModel);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Edit(int id)
+        {
+            if (!this.recipes.Exist(id))
+            {
+                return this.NotFound();
+            }
+
+            var recipeDetailsServiceModel = this.recipes.FindById(id);
+            var recipeEditInputModel = this.mapper.Map<RecipeEditInputModel>(recipeDetailsServiceModel);
+
+            recipeEditInputModel.Categories = this.categories.ListingForDropdown();
+            recipeEditInputModel.Level = Enum.Parse<DifficultyLevel>(recipeDetailsServiceModel.Level);
+
+            return this.View(recipeEditInputModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Edit(RecipeEditInputModel model)
+        {
+            if (!this.recipes.Exist(model.Id))
+            {
+                return this.NotFound();
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            var recipeEditServiceModel = this.mapper.Map<RecipeEditServiceModel>(model);
+
+            this.recipes.Edit(recipeEditServiceModel);
+
+            //TODO: Images
+            return this.RedirectToAction("Details", "Recipes", new { Id = model.Id });
         }
     }
 }

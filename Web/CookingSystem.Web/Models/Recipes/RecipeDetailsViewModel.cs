@@ -1,8 +1,8 @@
-﻿using CookingSystem.Web.Models.Images;
-using System.Collections.Generic;
-
-namespace CookingSystem.Web.Models.Recipes
+﻿namespace CookingSystem.Web.Models.Recipes
 {
+    using CookingSystem.Web.Models.Images;
+    using System.Collections.Generic;
+
     public class RecipeDetailsViewModel
     {
         public int Id { get; set; }
@@ -22,6 +22,8 @@ namespace CookingSystem.Web.Models.Recipes
         public string ContentIngredients { get; set; }
 
         public string PreparationMehtod { get; set; }
+
+        public string UserName { get; set; }
 
         public ICollection<ImageViewModel> Images {get; set;}
     }

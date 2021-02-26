@@ -5027,15 +5027,17 @@ input[type="button"].btn-block {
         }
 
 .card-body {
+    font-size: 14px;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     min-height: 1px;
-    padding: 1.25rem;
+    padding: 1rem;
 }
 
 .card-title {
-    font-size: 6px;
+    font-size: 14px;
     margin-bottom: 0.5rem;
+    text-wrap:none;
 }
 
 .card-subtitle {

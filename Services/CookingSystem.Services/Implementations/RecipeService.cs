@@ -42,13 +42,17 @@
             {
                 throw new ArgumentException("Cooking time be negative number or equal to zero.");
             }
-            if(recipe.Portion <= 0)
+            if (recipe.Portion <= 0)
             {
                 throw new ArgumentException("Portion cannot be negative number or equal to zero.");
             }
-            if(String.IsNullOrEmpty(recipe.ContentIngredients) || String.IsNullOrWhiteSpace(recipe.ContentIngredients))
+            if (String.IsNullOrEmpty(recipe.ContentIngredients) || String.IsNullOrWhiteSpace(recipe.ContentIngredients))
             {
                 throw new ArgumentException("Content Ingredients property cannot be null.");
+            }
+            if (String.IsNullOrWhiteSpace(recipe.UserId) || String.IsNullOrEmpty(recipe.UserId))
+            {
+                throw new ArgumentException("User id cannot be null");
             }
 
             this.context.Recipes.Add(recipe);
@@ -70,6 +74,8 @@
                 PreparationMehtod = x.PreparationMethod,
                 Category = x.Category.Name,
                 CookingTime = x.CookingTime,
+                UserId = x.UserId,
+                UserName = x.User.UserName
             })
             .FirstOrDefault();
 
@@ -100,7 +106,45 @@
             })
             .ToList();
 
+        public void Edit(RecipeEditServiceModel model)
+        {
+            if (String.IsNullOrWhiteSpace(model.Name) || String.IsNullOrEmpty(model.Name) || model.Name.Length > 30)
+            {
+                throw new ArgumentException("Recipe name cannot be null or more thsn 30 characters.");
+            }
+            if (model.CookingTime <= 0)
+            {
+                throw new ArgumentException("Cooking time be negative number or equal to zero.");
+            }
+            if (model.Portion <= 0)
+            {
+                throw new ArgumentException("Portion cannot be negative number or equal to zero.");
+            }
+            if (String.IsNullOrEmpty(model.ContentIngredients) || String.IsNullOrWhiteSpace(model.ContentIngredients))
+            {
+                throw new ArgumentException("Content Ingredients property cannot be null.");
+            }
+
+
+            var recipe = this.context.Recipes
+                .Where(x => x.IsDeleted == false)
+                .Where(x => x.Id == model.Id)
+                .FirstOrDefault();
+
+            if(recipe == null)
+            {
+                throw new ArgumentException("This recipe is probably deleted.");
+            }
+
+            recipe.Name = model.Name;
+            recipe.CookingTime = model.CookingTime;
+            recipe.CategoryId = model.CategoryId;
+            recipe.Level = model.Level;
+            recipe.Portion = model.Portion;
+            recipe.ContentIngredients = model.ContentIngredients;
+            recipe.PreparationMethod = model.PreparationMehtod;
+
+            this.context.SaveChanges();
+        }
     }
-
-
 }

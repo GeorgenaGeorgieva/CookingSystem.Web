@@ -46,10 +46,10 @@ namespace CookingSystem.Web
             services.AddControllersWithViews(configure =>
                 configure.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 
-            services.AddDbContext<CookingSystem.Data.CookingSystemDbContext>(options =>
+            services.AddDbContext<CookingSystemDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultAppConnection")));
-            services.AddDbContext<Data.ApplicationDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
 
@@ -70,6 +70,20 @@ namespace CookingSystem.Web
                 .AddRoles<IdentityRole>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
+
+            services.AddAuthentication()
+                .AddFacebook(
+                    facebookOptions =>
+                    {
+                        facebookOptions.AppId = Configuration["Facebook:AppId"];
+                        facebookOptions.AppSecret = Configuration["Facebook:AppSecret"];
+                    })
+                .AddGoogle(
+                    googleOptions =>
+                    {
+                        googleOptions.ClientId = Configuration["Google:ClientId"];
+                        googleOptions.ClientSecret = Configuration["Google:ClientSecret"];
+                    });
 
             services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperConfiguration>());
             services.AddControllersWithViews();
