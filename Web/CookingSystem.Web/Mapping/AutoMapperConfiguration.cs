@@ -3,10 +3,12 @@
     using System;
     using AutoMapper;
     using CookingSystem.Data.Models;
+    using CookingSystem.Services.Models.Comments;
     using CookingSystem.Services.Models.Images;
     using CookingSystem.Services.Models.Recipes;
     using CookingSystem.Web.Models;
     using CookingSystem.Web.Models.Categories;
+    using CookingSystem.Web.Models.Comments;
     using CookingSystem.Web.Models.Images;
     using CookingSystem.Web.Models.Recipes;
     using Microsoft.AspNetCore.Http;
@@ -45,6 +47,12 @@
 
             this.CreateMap<RecipeEditInputModel, RecipeEditServiceModel>()
                 .ForMember(x => x.Id, y => y.MapFrom(s => s.Id));
+
+            this.CreateMap<CommentListingServiceModel, CommentListingViewModel>()
+                .ForMember(x => x.Id, y => y.MapFrom(s => s.Id));
+
+            this.CreateMap<CommentInputModel, Comment>()
+                .ForMember(x => x.Author, y => y.MapFrom(s => s.Author));
         }
     }
 }

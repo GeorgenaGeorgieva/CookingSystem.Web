@@ -6,6 +6,7 @@
     using CookingSystem.Services;
     using CookingSystem.Services.Models.Recipes;
     using CookingSystem.Web.Data;
+    using CookingSystem.Web.Models.Comments;
     using CookingSystem.Web.Models.Images;
     using CookingSystem.Web.Models.Recipes;
     using Microsoft.AspNetCore.Authorization;
@@ -29,6 +30,7 @@
         private readonly IWebHostEnvironment webHostEnvironment;
         private readonly CookingSystemDbContext appContext;
         private readonly IImageSevice images;
+        private ICommentService comments;
 
         public RecipesController(IRecipeService recipes,
             IMapper mapper, IUserService userService,
@@ -37,7 +39,8 @@
             IWebHostEnvironment webHostEnvironment,
             CookingSystemDbContext appContext,
             ICategoryService categories,
-            IImageSevice images)
+            IImageSevice images,
+            ICommentService comments)
         {
             this.recipes = recipes;
             this.mapper = mapper;
@@ -48,6 +51,7 @@
             this.appContext = appContext;
             this.categories = categories;
             this.images = images;
+            this.comments = comments;
         }
 
         [HttpGet]
@@ -129,8 +133,13 @@
 
             var recipeServiceModel = this.recipes.FindById(id);
             var recipe = this.mapper.Map<RecipeDetailsViewModel>(recipeServiceModel);
+
             var recipeImages = this.images.GetRecipeImages(id);
             recipe.Images = recipeImages.Select(x => this.mapper.Map<ImageViewModel>(x)).ToList();
+
+            var comments = this.comments.Listing(id);
+            recipe.Comments = comments.Select(x => this.mapper.Map<CommentListingViewModel>(x)).ToList();
+
 
             return this.View(recipe);
         }

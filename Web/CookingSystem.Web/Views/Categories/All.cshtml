@@ -5,32 +5,34 @@
 
 <!DOCTYPE html>
 <body>
-    <h2>Categories</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th class="text-center">
-                    <a class="btn btn-success float-right btn-md" asp-controller="Categories" asp-action="Create">Create</a>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var category in Model)
-            {
+    <div class="jumbotron">
+        <h2>Categories</h2>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @category.Name
-                    </td>
-                    <td>
-                        <a asp-controller="Categories" asp-action="Delete" asp-route-id="@category.Id" class="delete float-right btn btn-danger" onclick="return confirm('Are you sure you want to delete category @category.Name?')">Delete</a>
-                    </td>
+                    <th>
+                        Name
+                    </th>
+                    <th class="text-center">
+                        <a class="btn btn-success float-right btn-md" asp-controller="Categories" asp-action="Create">Create</a>
+                    </th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <td>
+                            @category.Name
+                        </td>
+                        <td>
+                            <a asp-controller="Categories" asp-action="Delete" asp-route-id="@category.Id" class="delete float-right btn btn-danger" onclick="return confirm('Are you sure you want to delete category @category.Name?')">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 
 

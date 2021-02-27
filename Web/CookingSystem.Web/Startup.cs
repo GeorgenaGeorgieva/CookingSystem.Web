@@ -93,6 +93,7 @@ namespace CookingSystem.Web
             services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IImageSevice, ImageService>();
+            services.AddScoped<ICommentService, CommentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
