@@ -4,7 +4,9 @@
     using CookingSystem.Data;
     using CookingSystem.Data.Models;
     using CookingSystem.Services;
+    using CookingSystem.Services.Models.Recipes;
     using CookingSystem.Web.Data;
+    using CookingSystem.Web.Models.Comments;
     using CookingSystem.Web.Models.Images;
     using CookingSystem.Web.Models.Recipes;
     using Microsoft.AspNetCore.Authorization;
@@ -28,6 +30,7 @@
         private readonly IWebHostEnvironment webHostEnvironment;
         private readonly CookingSystemDbContext appContext;
         private readonly IImageSevice images;
+        private ICommentService comments;
 
         public RecipesController(IRecipeService recipes,
             IMapper mapper, IUserService userService,
@@ -36,7 +39,8 @@
             IWebHostEnvironment webHostEnvironment,
             CookingSystemDbContext appContext,
             ICategoryService categories,
-            IImageSevice images)
+            IImageSevice images,
+            ICommentService comments)
         {
             this.recipes = recipes;
             this.mapper = mapper;
@@ -47,6 +51,7 @@
             this.appContext = appContext;
             this.categories = categories;
             this.images = images;
+            this.comments = comments;
         }
 
         [HttpGet]
@@ -81,7 +86,7 @@
         [Authorize]
         public IActionResult Create(RecipeInputModel model)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.View();
             }
@@ -128,8 +133,13 @@
 
             var recipeServiceModel = this.recipes.FindById(id);
             var recipe = this.mapper.Map<RecipeDetailsViewModel>(recipeServiceModel);
+
             var recipeImages = this.images.GetRecipeImages(id);
             recipe.Images = recipeImages.Select(x => this.mapper.Map<ImageViewModel>(x)).ToList();
+
+            var comments = this.comments.Listing(id);
+            recipe.Comments = comments.Select(x => this.mapper.Map<CommentListingViewModel>(x)).ToList();
+
 
             return this.View(recipe);
         }
@@ -172,6 +182,46 @@
                 .ToList();
 
             return this.View(myRecipesViewModel);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Edit(int id)
+        {
+            if (!this.recipes.Exist(id))
+            {
+                return this.NotFound();
+            }
+
+            var recipeDetailsServiceModel = this.recipes.FindById(id);
+            var recipeEditInputModel = this.mapper.Map<RecipeEditInputModel>(recipeDetailsServiceModel);
+
+            recipeEditInputModel.Categories = this.categories.ListingForDropdown();
+            recipeEditInputModel.Level = Enum.Parse<DifficultyLevel>(recipeDetailsServiceModel.Level);
+
+            return this.View(recipeEditInputModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Edit(RecipeEditInputModel model)
+        {
+            if (!this.recipes.Exist(model.Id))
+            {
+                return this.NotFound();
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            var recipeEditServiceModel = this.mapper.Map<RecipeEditServiceModel>(model);
+
+            this.recipes.Edit(recipeEditServiceModel);
+
+            //TODO: Images
+            return this.RedirectToAction("Details", "Recipes", new { Id = model.Id });
         }
     }
 }

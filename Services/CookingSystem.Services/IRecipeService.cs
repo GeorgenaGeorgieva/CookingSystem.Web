@@ -12,5 +12,6 @@ namespace CookingSystem.Services
         ICollection<Recipe> GetMyRecipes(string userId);
         bool Exist(int id);
         void Delete(int id);
+        void Edit(RecipeEditServiceModel model);
     }
 }

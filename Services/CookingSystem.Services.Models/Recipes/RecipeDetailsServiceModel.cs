@@ -19,5 +19,9 @@
         public string ContentIngredients { get; set; }
 
         public string PreparationMehtod { get; set; }
+
+        public string UserId { get; set; }
+
+        public string UserName { get; set; }
     }
 }

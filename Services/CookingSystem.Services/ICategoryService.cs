@@ -11,5 +11,6 @@
         IEnumerable<Category> Listing();
         void DeleteCategory(int id);
         ICollection<CategoryListingServiceModel> ListingForDropdown();
+        Category GetCategoryByName(string name);
     }
 }

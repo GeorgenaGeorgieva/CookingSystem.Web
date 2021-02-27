@@ -46,10 +46,10 @@ namespace CookingSystem.Web
             services.AddControllersWithViews(configure =>
                 configure.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 
-            services.AddDbContext<CookingSystem.Data.CookingSystemDbContext>(options =>
+            services.AddDbContext<CookingSystemDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultAppConnection")));
-            services.AddDbContext<Data.ApplicationDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
 
@@ -71,6 +71,20 @@ namespace CookingSystem.Web
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
 
+            services.AddAuthentication()
+                .AddFacebook(
+                    facebookOptions =>
+                    {
+                        facebookOptions.AppId = Configuration["Facebook:AppId"];
+                        facebookOptions.AppSecret = Configuration["Facebook:AppSecret"];
+                    })
+                .AddGoogle(
+                    googleOptions =>
+                    {
+                        googleOptions.ClientId = Configuration["Google:ClientId"];
+                        googleOptions.ClientSecret = Configuration["Google:ClientSecret"];
+                    });
+
             services.AddAutoMapper(cfg => cfg.AddProfile<AutoMapperConfiguration>());
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -79,6 +93,7 @@ namespace CookingSystem.Web
             services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IImageSevice, ImageService>();
+            services.AddScoped<ICommentService, CommentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
