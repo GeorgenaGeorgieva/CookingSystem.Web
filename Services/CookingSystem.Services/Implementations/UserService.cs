@@ -39,6 +39,7 @@
 
             return users;
         }
+
         public async Task<User> GetUserByEmail(string email)
         => await this.context.Users.Include(e => e.Email).FirstOrDefaultAsync(x => x.Email == email);
 

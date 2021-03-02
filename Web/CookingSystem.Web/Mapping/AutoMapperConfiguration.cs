@@ -3,6 +3,7 @@
     using System;
     using AutoMapper;
     using CookingSystem.Data.Models;
+    using CookingSystem.Services.Models.Categories;
     using CookingSystem.Services.Models.Comments;
     using CookingSystem.Services.Models.Images;
     using CookingSystem.Services.Models.Recipes;

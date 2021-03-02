@@ -34,11 +34,11 @@
         public DifficultyLevel Level { get; set; }
 
         [Required]
-        [MaxLength(1000)]
+        [MaxLength(3000)]
         [Display(Name = "Products (one per row) / Example: potatoes - 1 kg / *")]
         public string ContentIngredients { get; set; }
 
-        [MaxLength(1000)]
+        [MaxLength(3000)]
         [Display(Name = "Method of preparation *")]
         public string PreparationMethod { get; set; }
 

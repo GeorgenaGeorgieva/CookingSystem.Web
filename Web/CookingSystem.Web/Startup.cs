@@ -22,6 +22,7 @@ using CookingSystem.Services;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using CookingSystem.Data.Models;
 
+
 namespace CookingSystem.Web
 {
     public class Startup
@@ -34,6 +35,38 @@ namespace CookingSystem.Web
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+
+        private async Task CreateRoles(IServiceProvider serviceProvider)
+        {
+            //initializing custom roles 
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            string[] roleNames = { "Admin", "Manager", "Member" };
+            IdentityResult roleResult;
+
+            foreach (var roleName in roleNames)
+            {
+                var roleExist = await roleManager.RoleExistsAsync(roleName);
+                if (!roleExist)
+                {
+                    //create the roles and seed them to the database
+                    roleResult = await roleManager.CreateAsync(new IdentityRole(roleName));
+                }
+            }
+
+            var _user = await userManager.FindByEmailAsync(Configuration["Administrator:Email"]);
+
+            if(_user != null)
+            {
+                var isInRole = await userManager.IsInRoleAsync(_user, "Admin");
+
+                if (!isInRole)
+                {
+                    await userManager.AddToRoleAsync(_user, "Admin");
+                }
+            }
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(
@@ -56,7 +89,7 @@ namespace CookingSystem.Web
             services.AddIdentity<IdentityUser, IdentityRole>(
                 options =>
                 {
-                    options.SignIn.RequireConfirmedAccount = false;
+                    options.SignIn.RequireConfirmedAccount = true;
                     options.Password.RequiredLength = 6;
                     options.Password.RequireDigit = false;
                     options.Password.RequireUppercase = false;
@@ -70,6 +103,14 @@ namespace CookingSystem.Web
                 .AddRoles<IdentityRole>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("readpolicy",
+                    builder => builder.RequireRole("Admin", "Moderator", "Owner", "User"));
+                options.AddPolicy("writepolicy",
+                    builder => builder.RequireRole("Admin", "Moderator", "Owner"));
+            });
 
             services.AddAuthentication()
                 .AddFacebook(
@@ -97,7 +138,7 @@ namespace CookingSystem.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -117,6 +158,8 @@ namespace CookingSystem.Web
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            CreateRoles(serviceProvider).Wait();
 
             app.UseEndpoints(endpoints =>
             {

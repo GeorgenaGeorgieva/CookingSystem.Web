@@ -15,7 +15,6 @@
 
         public int CategoryId { get; set; }
 
-        [Display(Name = "Degree of Difficulty")]
         public DifficultyLevel Level { get; set; }
 
         public int CookingTime { get; set; }
@@ -23,10 +22,10 @@
         public int Portion { get; set; }
 
         [Required]
-        [MaxLength(1000)]
+        [MaxLength(3000)]
         public string ContentIngredients { get; set; }
 
-        [MaxLength(1000)]
+        [MaxLength(3000)]
         public string PreparationMehtod { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CookingSystem.Web.Models.Recipes.RecipeViewModel>
+﻿@model CookingSystem.Web.Models.Recipes.AllRecipesViewModel
 
 
 <!DOCTYPE html>
@@ -9,13 +9,26 @@
     <title>All</title>
 </head>
 <body>
-    <div class="container jumbotron">
-        @foreach (var recipe in Model)
+
+
+    <div class="jumbotron text-center">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Select</a>
+        <div class="dropdown-menu" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
+            @foreach (var category in Model.Categories)
+            {
+                <a class="dropdown-item" asp-controller="Recipes" asp-action="GetAllRecipesByCategoryId" asp-route-categoryId="@category.Id">@category.Name</a>
+            }
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" asp-controller="Recipes" asp-action="All">All</a>
+        </div>
+        <div class="dropdown-divider"></div>
+
+        @foreach (var recipe in Model.Recipes)
         {
             <div style="display:inline-grid; margin: 1rem;">
                 <div class="card border-warning mb-3" style="max-width: 15rem; max-height: 35rem;">
                     <div class="card-header"></div>
-                    <img src="@("~/img/"+recipe.MainImage)" asp-append-version="true" width="100%" height="200"/>
+                    <img src="@("~/img/"+recipe.MainImage)" asp-append-version="true" width="100%" height="200" />
                     <div class="card-body">
                         <h6 class="card-title">@recipe.Name</h6>
                         <div style="display:inline">

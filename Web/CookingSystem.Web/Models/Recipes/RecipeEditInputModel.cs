@@ -25,10 +25,10 @@
         public int Portion { get; set; }
 
         [Required]
-        [MaxLength(1000)]
+        [MaxLength(3000)]
         public string ContentIngredients { get; set; }
 
-        [MaxLength(1000)]
+        [MaxLength(3000)]
         public string PreparationMehtod { get; set; }
 
         public ICollection<CategoryListingServiceModel> Categories { get; set; }
