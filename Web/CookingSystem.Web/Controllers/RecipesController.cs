@@ -92,7 +92,7 @@
                 return this.View();
             }
 
-            var userId = this.userManager.GetUserId(HttpContext.User);
+            var userId = this.userManager.GetUserId(this.HttpContext.User);
             var recipe = this.mapper.Map<Recipe>(model);
 
             recipe.Level = Enum.Parse<DifficultyLevel>(model.Level);

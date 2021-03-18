@@ -10,9 +10,6 @@
     {
         public int Id { get; set; }
 
-        [DataType(DataType.Date)]
-        public string PostedOn { get; set; } = DateTime.UtcNow.ToShortDateString();
-
         [Range(1, int.MaxValue)]
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
@@ -46,8 +43,10 @@
 
         public string MainImage { get; set; }
 
-        public User User { get; set; }
-        public string UserId { get; set; }
         public string UserName { get; set; }
+
+        public User User { get; set; }
+
+        public string UserId { get; set; }
     }
 }

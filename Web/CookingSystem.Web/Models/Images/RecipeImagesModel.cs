@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class ImageModel
+    public class RecipeImagesModel
     {
         [Required]
         [MaxLength(30)]
@@ -14,5 +14,7 @@
         [NotMapped]
         [DisplayName("Upload File")]
         public IFormFile ImageFile { get; set; }
+
+        public int RecipeId { get; set; }
     }
 }

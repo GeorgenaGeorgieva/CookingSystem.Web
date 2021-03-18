@@ -11,7 +11,7 @@
     <title>Details</title>
 </head>
 <body>
-    
+
     <div class="jumbotron">
         <div>
             <h4>@Model.Name</h4>
@@ -21,7 +21,10 @@
             <hr />
             @foreach (var img in Model.Images)
             {
-                <img src="@("~/img/"+img.Name)" asp-append-version="true" width="200px" height="200px" style="display:inline; margin: 0 5px;" />
+                <div>
+                    <img src="@("~/img/"+img.Name)" asp-append-version="true" width="500px" height="350px" style="display:inline; margin: 0 5px;" />
+                    @*<a class="btn" asp-controller="Images" asp-action="Delete" asp-route-imgId="@img.Id" asp-route-recipeId="@Model.Id">&times;</a>*@
+                </div>
             }
 
             <div class="card border-success mb-3" style="max-width: 20rem;">
