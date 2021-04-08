@@ -21,6 +21,7 @@ using CookingSystem.Services.Implementations;
 using CookingSystem.Services;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using CookingSystem.Data.Models;
+using System.IO;
 
 
 namespace CookingSystem.Web
@@ -54,7 +55,7 @@ namespace CookingSystem.Web
                 }
             }
 
-            var _user = await userManager.FindByEmailAsync(Configuration["Administrator:Email"]);
+            var _user = await userManager.FindByEmailAsync(Configuration["Admin:Email"]);
 
             if(_user != null)
             {
@@ -166,7 +167,7 @@ namespace CookingSystem.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Articles}/{action=All}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

@@ -58,6 +58,12 @@
 
             this.CreateMap<ArticleInputModel, Article>()
                 .ForMember(x => x.Title, y => y.MapFrom(s => s.Title));
+
+            this.CreateMap<Article, ArticleViewModel>()
+                .ForMember(x => x.Title, y => y.MapFrom(s => s.Title));
+
+            this.CreateMap<Article, ArticleDetailsViewModel>()
+                .ForMember(x => x.Title, y => y.MapFrom(s => s.Title));
         }
     }
 }

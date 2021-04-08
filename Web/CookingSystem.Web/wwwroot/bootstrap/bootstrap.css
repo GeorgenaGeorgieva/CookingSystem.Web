@@ -5046,6 +5046,7 @@ input[type="button"].btn-block {
 }
 
 .card-text:last-child {
+    
     margin-bottom: 0;
 }
 
@@ -8665,6 +8666,7 @@ button.bg-dark:focus {
 .mb-1,
 .my-1 {
     margin-bottom: 0.25rem !important;
+    font-weight: bold;
 }
 
 .ml-1,

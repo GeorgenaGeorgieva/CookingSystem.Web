@@ -207,6 +207,9 @@
             recipeEditInputModel.Categories = this.categories.ListingForDropdown();
             recipeEditInputModel.Level = Enum.Parse<DifficultyLevel>(recipeDetailsServiceModel.Level);
 
+            var recipeImages = this.images.GetRecipeImages(id);
+            recipeEditInputModel.Images = recipeImages.Select(x => this.mapper.Map<ImageViewModel>(x)).ToList();
+
             return this.View(recipeEditInputModel);
         }
 

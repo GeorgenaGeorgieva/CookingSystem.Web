@@ -30,9 +30,10 @@
 
             foreach (var user in this.context.Users)
             {
-                var isAdmin = await this.userManager.IsInRoleAsync(user, "Administrator");
+                var isAdmin = await this.userManager.IsInRoleAsync(user, "Admin");
                 if (!isAdmin)
                 {
+                    await this.userManager.AddToRoleAsync(user, "User");
                     users.Add(user);
                 }
             }

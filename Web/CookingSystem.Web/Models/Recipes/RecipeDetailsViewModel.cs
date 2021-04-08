@@ -27,9 +27,9 @@
 
         public string UserName { get; set; }
 
-        public ICollection<ImageViewModel> Images {get; set;}
+        public List<ImageViewModel> Images {get; set;}
 
-        public ICollection<CommentListingViewModel> Comments { get; set; }
+        public List<CommentListingViewModel> Comments { get; set; }
 
     }
 }

@@ -94,7 +94,7 @@ namespace CookingSystem.Web.Controllers
         {
             this.images.DeleteImage(imgId);
 
-            return this.RedirectToAction("Details", "Recipes", new { Id = recipeId});
+            return this.RedirectToAction("Edit", "Recipes", new { Id = recipeId});
         }
     }
 }

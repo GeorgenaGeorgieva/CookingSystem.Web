@@ -32,5 +32,7 @@
         public string PreparationMehtod { get; set; }
 
         public ICollection<CategoryListingServiceModel> Categories { get; set; }
+
+        public ICollection<ImageViewModel> Images { get; set; }
     }
 }
