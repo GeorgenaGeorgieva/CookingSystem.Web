@@ -6,6 +6,7 @@
     using CookingSystem.Services;
     using CookingSystem.Services.Models.Recipes;
     using CookingSystem.Web.Data;
+    using CookingSystem.Web.Models.Categories;
     using CookingSystem.Web.Models.Comments;
     using CookingSystem.Web.Models.Images;
     using CookingSystem.Web.Models.Recipes;
@@ -68,7 +69,7 @@
             var identityUser = await this.context.Users.FirstOrDefaultAsync(x => x.UserName == loggedUser);
             var user = this.mapper.Map<User>(identityUser);
 
-            if(!this.appContext.Users.Any(x => x.UserName == loggedUser))
+            if (!this.appContext.Users.Any(x => x.UserName == loggedUser))
             {
                 this.appContext.Users.Add(user);
                 this.appContext.SaveChanges();
@@ -91,7 +92,7 @@
                 return this.View();
             }
 
-            var userId = this.userManager.GetUserId(HttpContext.User);
+            var userId = this.userManager.GetUserId(this.HttpContext.User);
             var recipe = this.mapper.Map<Recipe>(model);
 
             recipe.Level = Enum.Parse<DifficultyLevel>(model.Level);
@@ -106,6 +107,7 @@
         [HttpGet]
         public IActionResult All()
         {
+            var allCategories = this.categories.ListingForDropdown();
             var allRecipes = this.recipes.Listing();
 
             var recipesViewModel = allRecipes
@@ -116,11 +118,17 @@
                     CategoryName = x.Category.Name,
                     Level = x.Level,
                     UserName = x.User.UserName,
-                    MainImage = x.Images.Select(i => i.Name).FirstOrDefault()
+                    MainImage = x.Images.Select(i => i.Name).FirstOrDefault(),
                 })
                 .ToList();
 
-            return this.View(recipesViewModel);
+            var allRecipesViewModel = new AllRecipesViewModel
+            {
+                Recipes = recipesViewModel,
+                Categories = allCategories
+            };
+
+            return this.View(allRecipesViewModel);
         }
 
         [HttpGet]
@@ -162,7 +170,7 @@
         {
             var userId = this.userManager.GetUserId(HttpContext.User);
 
-            if(userId == null)
+            if (userId == null)
             {
                 return this.BadRequest("There is no user with Id = null.");
             }
@@ -199,6 +207,9 @@
             recipeEditInputModel.Categories = this.categories.ListingForDropdown();
             recipeEditInputModel.Level = Enum.Parse<DifficultyLevel>(recipeDetailsServiceModel.Level);
 
+            var recipeImages = this.images.GetRecipeImages(id);
+            recipeEditInputModel.Images = recipeImages.Select(x => this.mapper.Map<ImageViewModel>(x)).ToList();
+
             return this.View(recipeEditInputModel);
         }
 
@@ -222,6 +233,33 @@
 
             //TODO: Images
             return this.RedirectToAction("Details", "Recipes", new { Id = model.Id });
+        }
+
+        [HttpGet]
+        public IActionResult GetAllRecipesByCategoryId(int categoryId)
+        {
+            var recipes = this.recipes.GetByCategoryId(categoryId);
+            var categories = this.categories.ListingForDropdown();
+
+            var recipesViewModel = recipes
+                    .Select(x => new RecipeViewModel
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                        CategoryName = x.Category.Name,
+                        Level = x.Level,
+                        UserName = x.User.UserName,
+                        MainImage = x.Images.Select(i => i.Name).FirstOrDefault(),
+                    })
+                    .ToList();
+
+            var allRecipesViewModel = new AllRecipesViewModel
+            {
+                Recipes = recipesViewModel,
+                Categories = categories
+            };
+
+            return this.View("All", allRecipesViewModel);
         }
     }
 }

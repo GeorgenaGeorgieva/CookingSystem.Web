@@ -9,10 +9,14 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.10" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.12" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.12" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.12" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.12">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.2.5" />
@@ -35,9 +39,9 @@
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="wwwroot\img\" />
         <Folder Include="Mapping\" />
         <Folder Include="Models\Categories\" />
         <Folder Include="Views\Categories\" />
+        <Folder Include="wwwroot\img\art\" />
     </ItemGroup>
 </Project>

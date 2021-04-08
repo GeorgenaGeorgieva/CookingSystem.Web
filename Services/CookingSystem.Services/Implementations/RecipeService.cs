@@ -146,5 +146,21 @@
 
             this.context.SaveChanges();
         }
+
+        public ICollection<Recipe> GetByCategoryId(int categoryId)
+        => this.context
+            .Recipes
+            .Where(x => x.IsDeleted == false)
+            .Where(x => x.CategoryId == categoryId)
+            .Select(x => new Recipe
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Category = x.Category,
+                Level = x.Level,
+                User = x.User,
+                Images = x.Images,
+            })
+            .ToList();
     }
 }

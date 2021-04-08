@@ -20,7 +20,7 @@ namespace CookingSystem.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("All", "Articles");
         }
 
         public IActionResult Privacy()

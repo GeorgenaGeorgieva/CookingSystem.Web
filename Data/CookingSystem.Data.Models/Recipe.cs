@@ -25,7 +25,7 @@
 
         public int Portion { get; set; }
 
-        [MaxLength(500)]
+        [MaxLength(3000)]
         public string PreparationMethod { get; set; }
 
         public DifficultyLevel Level { get; set; }

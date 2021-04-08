@@ -8,68 +8,74 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/slideshow.css" />
+    <link rel="stylesheet" href="~/css/details.css" />
     <title>Details</title>
 </head>
 <body>
+
     <div class="jumbotron">
         <div>
-            <h4>@Model.Name</h4>
-            <div>
+            <h4><b>@Model.Name</b></h4>
+            <small>
                 <i class="far fa-calendar-check"></i>  @Model.Date
-            </div>
+            </small>
             <hr />
-            @foreach (var img in Model.Images)
-            {
-                <img src="@("~/img/"+img.Name)" asp-append-version="true" width="200px" height="200px" style="display:inline; margin: 0 5px;" />
-            }
+            <!-- Slideshow container -->
 
-            <div class="card border-success mb-3" style="max-width: 20rem;">
-                <div class="card-header">Information</div>
-                <div class="card-body">
-                    <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <i class="fas fa-award"></i> @Model.Category
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <i class="fas fa-sort-amount-up"></i> @Model.Level
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <i class="fas fa-utensils"></i> @Model.Portion
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <i class="fas fa-stopwatch"></i> @Model.CookingTime
-                        </li>
-                    </ul>
+            <div class="slideshow-container">
+                @for (int i = 0; i < Model.Images.Count; i++)
+                {
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides fade">
+                        <div class="numbertext">@(i + 1)/ @Model.Images.Count</div>
+                        <img src="@("~/img/" + Model.Images[i].Name)" asp-append-version="true" style="width:100%; height:350px;" />
+                    </div>
+                }
+            </div>
+
+            <div class="card border-success mb-3" style="margin-top: 1rem;">
+                <div class="row">
+                    <div class="column">
+                        <i class="fas fa-award"></i> @Model.Category
+                    </div>
+                    <div class="column">
+                        <i class="fas fa-sort-amount-up"></i> @Model.Level
+                    </div>
+                    <div class="column">
+                        <i class="fas fa-utensils"></i> @Model.Portion
+                    </div>
+                    <div class="column">
+                        <i class="fas fa-stopwatch"></i> @Model.CookingTime
+                    </div>
                 </div>
             </div>
 
             <div class="card border-warning mb-3" style="max-width: 40rem;">
-                <div class="card-header">Ingredients</div>
+                <div class="card-header">НЕОБХОДИМИ ПРОДУКТИ</div>
                 <div class="card-body">
-                    <p class="card-text">@Model.ContentIngredients</p>
+                    <em class="card-text" style="white-space: pre-line;">@Model.ContentIngredients</em>
                 </div>
             </div>
             <div class="card border-primary mb-3" style="max-width: 40rem;">
-                <div class="card-header">Method of Preparation</div>
+                <div class="card-header">НАЧИН НА ПРИГОТВЯНЕ</div>
                 <div class="card-body">
-                    <p class="card-text">@Model.PreparationMehtod</p>
+                    <em class="card-text">@Model.PreparationMehtod</em>
                 </div>
             </div>
         </div>
 
-
-
         <div>
-            <a class="btn btn-danger btn-sm" asp-controller="Recipes" asp-action="All">Back</a>
+            <a class="btn btn-danger btn-sm" asp-controller="Recipes" asp-action="All">Назад</a>
             @if (this.Context.User.Identity.Name == Model.UserName)
             {
-                <a class="btn btn-warning btn-sm" asp-controller="Recipes" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                <a class="btn btn-success btn-sm" asp-action="AddImage" asp-controller="Images" asp-route-recipeId="@Model.Id">Images</a>
+                <a class="btn btn-warning btn-sm" asp-controller="Recipes" asp-action="Edit" asp-route-id="@Model.Id">Промени</a>
+                <a class="btn btn-success btn-sm" asp-action="AddImage" asp-controller="Images" asp-route-recipeId="@Model.Id">Добави изображения</a>
             }
         </div>
     </div>
     <div class="jumbotron align-content-center" style="margin-top: 1rem;">
-        <a class="btn btn-success btn-sm" asp-controller="Comments" asp-action="Add" asp-route-recipeId="@Model.Id">Comment</a>
+        <a class="btn btn-success btn-sm" asp-controller="Comments" asp-action="Add" asp-route-recipeId="@Model.Id">Коментирай</a>
         <div class="list-group">
             @foreach (var comment in Model.Comments)
             {
@@ -86,5 +92,6 @@
             }
         </div>
     </div>
+    <script type="text/javascript" src="~/js/slideshow.js"></script>
 </body>
 </html>

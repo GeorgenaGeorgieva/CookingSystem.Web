@@ -13,5 +13,6 @@ namespace CookingSystem.Services
         bool Exist(int id);
         void Delete(int id);
         void Edit(RecipeEditServiceModel model);
+        ICollection<Recipe> GetByCategoryId(int categoryId);
     }
 }

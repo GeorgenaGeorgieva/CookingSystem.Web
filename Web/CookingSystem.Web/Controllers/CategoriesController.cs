@@ -12,7 +12,7 @@
     using AutoMapper.QueryableExtensions;
     using Microsoft.AspNetCore.Authorization;
 
-    [Authorize]
+    
     public class CategoriesController : Controller
     {
         private ICategoryService categories;
@@ -25,6 +25,7 @@
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin, Mnager")]
         public IActionResult Create()
         {
             return this.View();
@@ -55,6 +56,7 @@
             return this.View(categoriesViewModel);
         }
 
+        [Authorize(Roles = "Admin, Mnager")]
         public IActionResult Delete(int id)
         {
             this.categories.DeleteCategory(id);

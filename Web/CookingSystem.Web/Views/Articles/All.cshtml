@@ -1,0 +1,36 @@
+﻿@model IEnumerable<CookingSystem.Web.Models.Articles.ArticleViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All</title>
+</head>
+<body>
+    <div class="jumbotron text-center">
+
+        @foreach (var article in Model)
+        {
+            <div style="display:inline-grid; margin: 1rem;">
+                <div class="card border-warning mb-3" style="max-width: 15rem; max-height: 35rem;">
+                    <div class="card-header"></div>
+                    <img src="@("~/img/art/" + article.Url)" asp-append-version="true" width="100%" height="250px" />
+                    <div class="card-body">
+                        <h6 class="card-title">@article.Title</h6>
+                        <div class="dropdown-divider"></div>
+                        <div class"card border-dark mb-3" style="display:inline">
+                            <a asp-action="Details" asp-controller="Articles" asp-route-id="@article.Id">Прочети повече...</a>
+                            <a asp-action="Delete" asp-controller="Articles" asp-route-id="@article.Id">Изтрий</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

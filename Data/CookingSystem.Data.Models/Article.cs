@@ -5,21 +5,17 @@
 
     public class Article
     {
-        public Article()
-        {
-            this.Date = DateTime.UtcNow;
-        }
-
         public int Id { get; set; }
-
-        [Required]
-        public string Url { get; set; }
 
         [Required]
         [MaxLength(100)]
         public string Title { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
+
+        [Required]
+        public string Url { get; set; }
 
         [Required]
         [MaxLength(1000)]

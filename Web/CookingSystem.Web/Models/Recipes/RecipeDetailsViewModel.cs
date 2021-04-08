@@ -1,5 +1,6 @@
 ﻿namespace CookingSystem.Web.Models.Recipes
 {
+    using CookingSystem.Web.Models.Categories;
     using CookingSystem.Web.Models.Comments;
     using CookingSystem.Web.Models.Images;
     using System.Collections.Generic;
@@ -26,8 +27,9 @@
 
         public string UserName { get; set; }
 
-        public ICollection<ImageViewModel> Images {get; set;}
+        public List<ImageViewModel> Images {get; set;}
 
-        public ICollection<CommentListingViewModel> Comments { get; set; }
+        public List<CommentListingViewModel> Comments { get; set; }
+
     }
 }

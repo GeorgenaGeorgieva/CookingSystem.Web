@@ -14,7 +14,5 @@
         [NotMapped]
         [DisplayName("Upload File")]
         public IFormFile ImageFile { get; set; }
-
-        public int RecipeId { get; set; }
     }
 }

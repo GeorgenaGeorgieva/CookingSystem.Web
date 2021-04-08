@@ -1,0 +1,34 @@
+﻿@model CookingSystem.Web.Models.Articles.ArticleDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+    <div class="jumbotron">
+
+        <div>
+            <img src="@("~/img/art/" + Model.Url)" asp-append-version="true" style="width:100%; height:350px;" />
+        </div>
+
+        <b>@Model.Title</b>
+        <br />
+            <em>@Model.Content</em>
+            <small>Автор: @Model.UserName</small>
+            <small>Дата: @Model.Date</small>
+        
+        <div>
+            @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</body>
+</html>
