@@ -15,7 +15,6 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-     
     public class ArticlesController : Controller
     {
         private IArticleService articles;
@@ -112,6 +111,21 @@
             this.articles.Delete(id);
 
             return this.RedirectToAction("All", "Articles");
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Edit(int id)
+        {
+            if (!this.articles.Exist(id))
+            {
+                return this.NotFound();
+            }
+
+            var article = this.articles.FindById(id);
+            var articleEditDetailsViewModel = this.mapper.Map<ArticleEditDetailsViewModel>(article);
+
+            return this.View(articleEditDetailsViewModel);
         }
     }
 }

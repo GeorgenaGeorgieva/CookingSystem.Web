@@ -64,6 +64,9 @@
 
             this.CreateMap<Article, ArticleDetailsViewModel>()
                 .ForMember(x => x.Title, y => y.MapFrom(s => s.Title));
+
+            this.CreateMap<Article, ArticleEditDetailsViewModel>()
+                .ForMember(x => x.Title, y => y.MapFrom(s => s.Title));
         }
     }
 }

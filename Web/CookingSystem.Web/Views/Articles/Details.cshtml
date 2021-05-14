@@ -19,15 +19,23 @@
             <img src="@("~/img/art/" + Model.Url)" asp-append-version="true" style="width:100%; height:350px;" />
         </div>
 
-        <b>@Model.Title</b>
+        <h3 style="font-weight: bold">@Model.Title</h3>
         <br />
-            <em>@Model.Content</em>
-            <small>Автор: @Model.UserName</small>
-            <small>Дата: @Model.Date</small>
-        
         <div>
-            @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-            <a asp-action="Index">Back to List</a>
+            <div style="font-style: italic">
+                <p>@Model.Content</p>
+                <p><small>Автор: @Model.UserName</small></p>
+                <p><small>Дата: @Model.Date</small></p>
+            </div>
+        </div>
+
+
+        <div>
+            @if (this.Context.User.Identity.Name == Model.UserName)
+            {
+                <a asp-action="Edit" asp-controller="Articles" asp-route-id="@Model.Id">Редактирай</a>
+            }
+            <a asp-action="All" asp-controller="Articles">Назад</a>
         </div>
     </div>
 </body>
