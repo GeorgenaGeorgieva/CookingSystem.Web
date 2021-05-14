@@ -1,0 +1,81 @@
+﻿@model CookingSystem.Web.Models.Recipes.RecipeEditInputModel
+@using CookingSystem.Data.Models
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+    <div class="jumbotron">
+        <hr />
+        <div class="row">
+            <div class="col-md-9">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group" hidden>
+                        <label asp-for="Id" class="control-label"></label>
+                        <input asp-for="Id" class="form-control" />
+                        <span asp-validation-for="Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CategoryId" class="control-label"></label>
+                        <select asp-for="CategoryId" class="form-control">
+                            @foreach (var category in Model.Categories)
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Level"></label>
+                        <select asp-for="@Model.Level" asp-items="@Html.GetEnumSelectList<DifficultyLevel>()" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CookingTime" class="control-label"></label>
+                        <input asp-for="CookingTime" class="form-control" />
+                        <span asp-validation-for="CookingTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Portion" class="control-label"></label>
+                        <input asp-for="Portion" class="form-control" />
+                        <span asp-validation-for="Portion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ContentIngredients" class="control-label"></label>
+                        <textarea asp-for="ContentIngredients" class="form-control" style="height:100px;"></textarea>
+                        <span asp-validation-for="ContentIngredients" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PreparationMehtod" class="control-label"></label>
+                        <textarea asp-for="PreparationMehtod" class="form-control" style="height:100px;"></textarea>
+                        <span asp-validation-for="PreparationMehtod" class="text-danger"></span>
+                    </div>
+                    <div>
+                        @foreach (var img in Model.Images)
+                        {
+                            <div>
+                                <img src="@("~/img/"+img.Name)" asp-append-version="true" width="250px" height="250px" style="display:inline;" />
+                                <a class="btn" asp-controller="Images" asp-action="Delete" asp-route-imgId="@img.Id" asp-route-recipeId="@Model.Id">&times;</a>
+                            </div>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn alert-info">Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

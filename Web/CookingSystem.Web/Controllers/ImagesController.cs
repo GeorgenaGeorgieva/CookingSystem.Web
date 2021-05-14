@@ -9,6 +9,7 @@ using CookingSystem.Data.Models;
 using CookingSystem.Services;
 using CookingSystem.Web.Models.Images;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CookingSystem.Web.Controllers
@@ -16,6 +17,7 @@ namespace CookingSystem.Web.Controllers
     public class ImagesController : Controller
     {
         private readonly CookingSystemDbContext context;
+        private IImageSevice images;
         private readonly IWebHostEnvironment webHostEnvironment;
         private IMapper mapper;
         private IRecipeService recipes;
@@ -23,12 +25,14 @@ namespace CookingSystem.Web.Controllers
         public ImagesController(CookingSystemDbContext context,
                                     IWebHostEnvironment webHostEnvironment,
                                     IMapper mapper,
-                                    IRecipeService recipes)
+                                    IRecipeService recipes,
+                                    IImageSevice images)
         {
             this.context = context;
             this.webHostEnvironment = webHostEnvironment;
             this.mapper = mapper;
             this.recipes = recipes;
+            this.images = images;
         }
 
         [HttpGet]
@@ -53,7 +57,7 @@ namespace CookingSystem.Web.Controllers
                 return this.NotFound("There is no recipe with given id");
             }
 
-            var imageModel = new ImageModel();
+            var imageModel = new RecipeImagesModel();
             imageModel.RecipeId = recipeId;
 
             return this.View(imageModel);
@@ -61,9 +65,9 @@ namespace CookingSystem.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddImage([Bind("Id,Name,ImageFile,RecipeId")] ImageModel imageModel)
+        public async Task<IActionResult> AddImage([Bind("Name, ImageFile, RecipeId")] RecipeImagesModel imageModel)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.View(imageModel);
             }
@@ -83,7 +87,14 @@ namespace CookingSystem.Web.Controllers
             this.context.Add(image);
             await this.context.SaveChangesAsync();
 
-            return RedirectToAction("Details", "Recipes", new { id = imageModel.RecipeId });
+            return this.RedirectToAction("Details", "Recipes", new { id = imageModel.RecipeId });
+        }
+
+        public IActionResult Delete(int imgId, int recipeId)
+        {
+            this.images.DeleteImage(imgId);
+
+            return this.RedirectToAction("Edit", "Recipes", new { Id = recipeId});
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CookingSystem.Web.Models.Recipes.RecipeViewModel>
+﻿@model CookingSystem.Web.Models.Recipes.AllRecipesViewModel
 
 
 <!DOCTYPE html>
@@ -9,88 +9,44 @@
     <title>All</title>
 </head>
 <body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PostedOn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CookingTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Portion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Level)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContentIngredients)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PreparationMethod)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserId)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var recipe in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => recipe.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => recipe.PostedOn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => recipe.CategoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => recipe.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => recipe.CookingTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => recipe.Portion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => recipe.Level)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => recipe.ContentIngredients)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => recipe.PreparationMethod)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => recipe.UserId)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |
-                <a class="btn btn-info" asp-action="Details" asp-controller="Recipes" asp-route-id="@recipe.Id">Details</a>
-                <a class="btn btn-info" asp-action="AddImage" asp-controller="Images" asp-route-recipeId="@recipe.Id">Images</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+    <div class="jumbotron text-center">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Select</a>
+        <div class="dropdown-menu" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
+            @foreach (var category in Model.Categories)
+            {
+                <a class="dropdown-item" asp-controller="Recipes" asp-action="GetAllRecipesByCategoryId" asp-route-categoryId="@category.Id">@category.Name</a>
+            }
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" asp-controller="Recipes" asp-action="All">All</a>
+        </div>
+        <div class="dropdown-divider"></div>
+
+        @foreach (var recipe in Model.Recipes)
+        {
+            <div style="display:inline-grid; margin: 1rem;">
+                <div class="card border-warning mb-3" style="max-width: 15rem; max-height: 35rem;">
+                    <div class="card-header"></div>
+                    <img src="@("~/img/"+recipe.MainImage)" asp-append-version="true" width="100%" height="200" />
+                    <div class="card-body">
+                        <h6 class="card-title">@recipe.Name</h6>
+                        <div style="display:inline;">
+                            <p class="card-text"><i class="fas fa-award"></i> @recipe.CategoryName</p>
+                            <p class="card-text"><i class="fas fa-user-check"></i> @recipe.UserName</p>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class"card border-dark mb-3" style="display:inline">
+                            <a class="btn btn-primary btn-sm" asp-action="Details" asp-controller="Recipes" asp-route-id="@recipe.Id">Details</a>
+                            @if (this.Context.User.Identity.Name == recipe.UserName)
+                            {
+                                <a class="btn btn-danger btn-sm" asp-action="Delete" asp-controller="Recipes" asp-route-id="@recipe.Id" onclick="return confirm('Are you sure you want to delete recipe `@recipe.Name`?')">Delete</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </body>
 </html>

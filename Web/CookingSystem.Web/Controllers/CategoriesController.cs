@@ -10,7 +10,9 @@
     using CookingSystem.Web.Models.Categories;
     using Microsoft.AspNetCore.Mvc;
     using AutoMapper.QueryableExtensions;
+    using Microsoft.AspNetCore.Authorization;
 
+    
     public class CategoriesController : Controller
     {
         private ICategoryService categories;
@@ -23,6 +25,7 @@
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin, Mnager")]
         public IActionResult Create()
         {
             return this.View();
@@ -53,6 +56,7 @@
             return this.View(categoriesViewModel);
         }
 
+        [Authorize(Roles = "Admin, Mnager")]
         public IActionResult Delete(int id)
         {
             this.categories.DeleteCategory(id);

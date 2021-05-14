@@ -8,9 +8,11 @@ namespace CookingSystem.Services
     {
         ICollection<Recipe> Listing();
         void Create(Recipe recipe);
-
         RecipeDetailsServiceModel FindById(int id);
-
+        ICollection<Recipe> GetMyRecipes(string userId);
         bool Exist(int id);
+        void Delete(int id);
+        void Edit(RecipeEditServiceModel model);
+        ICollection<Recipe> GetByCategoryId(int categoryId);
     }
 }

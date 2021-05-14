@@ -8,88 +8,90 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/slideshow.css" />
+    <link rel="stylesheet" href="~/css/details.css" />
     <title>Details</title>
 </head>
 <body>
 
-    <div>
-        <h4>RecipeDetailsViewModel</h4>
-        <hr />
-        @foreach (var img in Model.Images)
-        {
-            <dl class="row">
-                <dt class="col-sm-2">
-                </dt>
-                <dd class="col-sm-10">
-                    <img src="@("~/img/"+img.Name)" asp-append-version="true" width="250px" height="250px" />
-                    <form asp-action="Delete">
-                        <input type="hidden" asp-for="@img.Id" />
-                        <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this image.')" /> |
-                        <a asp-action="Index">Back</a>
-                    </form>
-                </dd>
-            </dl>
-        }
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Id)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Id)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Date)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Date)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Category)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Category)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Level)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Level)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.CookingTime)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.CookingTime)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Portion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Portion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ContentIngredients)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ContentIngredients)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PreparationMehtod)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PreparationMehtod)
-            </dd>
-        </dl>
+    <div class="jumbotron">
+        <div>
+            <h4><b>@Model.Name</b></h4>
+            <small>
+                <i class="far fa-calendar-check"></i>  @Model.Date
+            </small>
+            <hr />
+            <!-- Slideshow container -->
+
+            <div class="slideshow-container">
+                @for (int i = 0; i < Model.Images.Count; i++)
+                {
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides fade">
+                        <div class="numbertext">@(i + 1)/ @Model.Images.Count</div>
+                        <img src="@("~/img/" + Model.Images[i].Name)" asp-append-version="true" style="width:100%; height:350px;" />
+                    </div>
+                }
+            </div>
+
+            <div class="card border-success mb-3" style="margin-top: 1rem;">
+                <div class="row">
+                    <div class="column">
+                        <i class="fas fa-award"></i> @Model.Category
+                    </div>
+                    <div class="column">
+                        <i class="fas fa-sort-amount-up"></i> @Model.Level
+                    </div>
+                    <div class="column">
+                        <i class="fas fa-utensils"></i> @Model.Portion
+                    </div>
+                    <div class="column">
+                        <i class="fas fa-stopwatch"></i> @Model.CookingTime
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-warning mb-3" style="max-width: 40rem;">
+                <div class="card-header">НЕОБХОДИМИ ПРОДУКТИ</div>
+                <div class="card-body">
+                    <em class="card-text" style="white-space: pre-line;">@Model.ContentIngredients</em>
+                </div>
+            </div>
+            <div class="card border-primary mb-3" style="max-width: 40rem;">
+                <div class="card-header">НАЧИН НА ПРИГОТВЯНЕ</div>
+                <div class="card-body">
+                    <em class="card-text">@Model.PreparationMehtod</em>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <a class="btn btn-danger btn-sm" asp-controller="Recipes" asp-action="All">Назад</a>
+            @if (this.Context.User.Identity.Name == Model.UserName)
+            {
+                <a class="btn btn-warning btn-sm" asp-controller="Recipes" asp-action="Edit" asp-route-id="@Model.Id">Промени</a>
+                <a class="btn btn-success btn-sm" asp-action="AddImage" asp-controller="Images" asp-route-recipeId="@Model.Id">Добави изображения</a>
+            }
+        </div>
     </div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a class="btn btn-danger" asp-action="Index">Back</a>
-</div>
+    <div class="jumbotron align-content-center" style="margin-top: 1rem;">
+        <a class="btn btn-success btn-sm" asp-controller="Comments" asp-action="Add" asp-route-recipeId="@Model.Id">Коментирай</a>
+        <div class="list-group">
+            @foreach (var comment in Model.Comments)
+            {
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">@comment.Author</h5>
+                        <small>@comment.Date</small>
+                    </div>
+                    <p class="mb-1">
+                        @comment.Content
+                    </p>
+                    <small>@comment.UserName</small>
+                </a>
+            }
+        </div>
+    </div>
+    <script type="text/javascript" src="~/js/slideshow.js"></script>
 </body>
 </html>
