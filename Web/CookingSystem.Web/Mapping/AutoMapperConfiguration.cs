@@ -3,6 +3,7 @@
     using System;
     using AutoMapper;
     using CookingSystem.Data.Models;
+    using CookingSystem.Services.Models.Articles;
     using CookingSystem.Services.Models.Categories;
     using CookingSystem.Services.Models.Comments;
     using CookingSystem.Services.Models.Images;
@@ -67,6 +68,10 @@
 
             this.CreateMap<Article, ArticleEditDetailsViewModel>()
                 .ForMember(x => x.Title, y => y.MapFrom(s => s.Title));
+
+            this.CreateMap<ArticleEditInputModel, ArticleEditServiceModel>()
+                .ForMember(x => x.Title, y => y.MapFrom(s => s.Title));
+
         }
     }
 }

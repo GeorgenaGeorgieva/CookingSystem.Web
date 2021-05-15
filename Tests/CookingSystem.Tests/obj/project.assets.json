@@ -4022,6 +4022,7 @@
           "CookingSystem.Data": "1.0.0",
           "CookingSystem.Data.Models": "1.0.0",
           "CookingSystem.Services": "1.0.0",
+          "CookingSystem.Services.Models": "1.0.0",
           "Microsoft.AspNetCore.Authentication.Facebook": "3.1.7",
           "Microsoft.AspNetCore.Authentication.Google": "3.1.7",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.10",

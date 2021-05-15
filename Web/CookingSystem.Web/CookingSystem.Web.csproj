@@ -33,6 +33,7 @@
             <GlobalPropertiesToRemove>
             </GlobalPropertiesToRemove>
         </ProjectReference>
+        <ProjectReference Include="..\..\Services\CookingSystem.Services.Models\CookingSystem.Services.Models.csproj" />
         <ProjectReference Include="..\..\Services\CookingSystem.Services\CookingSystem.Services.csproj">
             <GlobalPropertiesToRemove>
             </GlobalPropertiesToRemove>

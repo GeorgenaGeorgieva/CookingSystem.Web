@@ -3,6 +3,7 @@
     using AutoMapper;
     using CookingSystem.Data.Models;
     using CookingSystem.Services;
+    using CookingSystem.Services.Models.Articles;
     using CookingSystem.Web.Models.Articles;
     using CookingSystem.Web.Models.Images;
     using Microsoft.AspNetCore.Authorization;
@@ -119,13 +120,34 @@
         {
             if (!this.articles.Exist(id))
             {
-                return this.NotFound();
+                return this.NotFound("There is no article with given Id.");
             }
 
             var article = this.articles.FindById(id);
             var articleEditDetailsViewModel = this.mapper.Map<ArticleEditDetailsViewModel>(article);
 
             return this.View(articleEditDetailsViewModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Edit(ArticleEditInputModel model)
+        {
+            if (!this.articles.Exist(model.Id))
+            {
+                return this.NotFound("There is no article with given Id.");
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            var articleEditServiceModel = this.mapper.Map<ArticleEditServiceModel>(model);
+
+            this.articles.Edit(articleEditServiceModel);
+
+            return this.RedirectToAction("Details", "Articles", new { Id = model.Id });
         }
     }
 }
