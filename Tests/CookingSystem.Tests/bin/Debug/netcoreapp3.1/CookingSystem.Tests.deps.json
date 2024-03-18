@@ -2538,11 +2538,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.ComponentModel.Annotations/4.7.0": {
-        "compile": {
-          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {}
-        }
-      },
+      "System.ComponentModel.Annotations/4.7.0": {},
       "System.ComponentModel.EventBasedAsync/4.3.0": {
         "dependencies": {
           "System.Resources.ResourceManager": "4.3.0",
@@ -3434,6 +3430,7 @@
           "CookingSystem.Data": "1.0.0",
           "CookingSystem.Data.Models": "1.0.0",
           "CookingSystem.Services": "1.0.0",
+          "CookingSystem.Services.Models": "1.0.0",
           "Microsoft.AspNetCore.Authentication.Facebook": "3.1.7",
           "Microsoft.AspNetCore.Authentication.Google": "3.1.7",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.10",

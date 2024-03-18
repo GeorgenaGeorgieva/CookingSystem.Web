@@ -12,11 +12,11 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("CookingSystem.Web", "D:\\Projects\\CookingSystem\\Web\\CookingSystem.Web", "CookingSystem.Web.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("CookingSystem.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\georg\\source\\repos\\CookingSystem.Web\\Web\\CookingSystem.Web", "CookingSystem.Web.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("CookingSystem.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ecc19fc7e7da7ead495e026964f126f59456a28c")]
 [assembly: System.Reflection.AssemblyProductAttribute("CookingSystem.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CookingSystem.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
