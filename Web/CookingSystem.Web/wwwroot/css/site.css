@@ -3,7 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    background-color: #efe8c3;
+    background-color: #f2f2f2;
 }
 
 a.navbar-brand {
@@ -35,8 +35,13 @@ a.nav-item {
 }
 
 nav {
-    background: rgb(255,228,68);
-    background: linear-gradient(90deg, rgba(255,228,68,0.8295693277310925) 0%, rgba(255,131,35,1) 100%);
+    background: rgb(202,214,217);
+    background: linear-gradient(90deg, rgb(197 209 205 / 83%) 0%, rgb(27 32 32) 100%);
+    color: #d4d4d4;
+}
+
+.logo {
+    max-height: 40px;
 }
 
 

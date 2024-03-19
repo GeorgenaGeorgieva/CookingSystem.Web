@@ -6,27 +6,27 @@ namespace CookingSystem.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Articles_Images_ImageId",
-                table: "Articles");
+            //migrationBuilder.DropForeignKey(
+            //    name: "FK_Articles_Images_ImageId",
+            //    table: "Articles");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Articles_ImageId",
-                table: "Articles");
+            //migrationBuilder.DropIndex(
+            //    name: "IX_Articles_ImageId",
+            //    table: "Articles");
 
-            migrationBuilder.DropColumn(
-                name: "ArticleId",
-                table: "Images");
+            //migrationBuilder.DropColumn(
+            //    name: "ArticleId",
+            //    table: "Images");
 
-            migrationBuilder.DropColumn(
-                name: "ImageId",
-                table: "Articles");
+            //migrationBuilder.DropColumn(
+            //    name: "ImageId",
+            //    table: "Articles");
 
-            migrationBuilder.AddColumn<string>(
-                name: "Url",
-                table: "Articles",
-                nullable: false,
-                defaultValue: "");
+            //migrationBuilder.AddColumn<string>(
+            //    name: "Url",
+            //    table: "Articles",
+            //    nullable: false,
+            //    defaultValue: "");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

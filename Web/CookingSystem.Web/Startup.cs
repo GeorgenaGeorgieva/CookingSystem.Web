@@ -109,9 +109,9 @@ namespace CookingSystem.Web
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("readpolicy",
-                    builder => builder.RequireRole("Admin", "Moderator", "Owner", "User"));
+                    builder => builder.RequireRole("Admin", "Moderator", "Owner", "User", "Manager"));
                 options.AddPolicy("writepolicy",
-                    builder => builder.RequireRole("Admin", "Moderator", "Owner"));
+                    builder => builder.RequireRole("Admin", "Moderator", "Owner", "Manager"));
             });
 
             services.AddAuthentication()

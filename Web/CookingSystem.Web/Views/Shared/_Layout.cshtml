@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CookingSystem.Web</title>
-    <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="~/bootstrap/_bootswatch.scss" />
     <link rel="stylesheet" href="~/bootstrap/_variables.scss" />
     <link rel="stylesheet" href="~/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
     <link href="~/fontawesome/css/all.css" rel="stylesheet">
     <link href="~/fontawesome/css/all.min.css" rel="stylesheet">
@@ -17,7 +17,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light box-shadow mb-5">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CookingSystem.Web</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Articles" asp-action="All"><img src="~/img/logo/CookingBook.png" class="logo" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,25 +26,25 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Articles" asp-action="All">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Articles" asp-action="All">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Recipes" asp-action="All">Recipes</a>
+                            <a class="nav-link" asp-area="" asp-controller="Recipes" asp-action="All">Recipes</a>
                         </li>
-                        @if (this.Context.User.IsInRole("Admin"))
-                        {
+                   @*      @if (this.Context.User.IsInRole("Admin"))
+                        { *@
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="All">Categories</a>
+                                <a class="nav-link" asp-area="" asp-controller="Categories" asp-action="All">Categories</a>
                             </li>
-                        }
-                        @if (this.Context.User.IsInRole("Admin"))
-                        {
+                        @* } *@
+                       @*  @if (this.Context.User.IsInRole("Admin"))
+                        { *@
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="All">Users</a>
+                                <a class="nav-link" asp-area="" asp-controller="Users" asp-action="All">Users</a>
                             </li>
-                        }
-                        @if (this.Context.User.IsInRole("Admin"))
-                        {
+                        @* } *@
+                        @* @if (this.Context.User.IsInRole("Admin"))
+                        { *@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Options</a>
                                 <div class="dropdown-menu">
@@ -54,7 +54,7 @@
                                     <div class="dropdown-divider"></div>
                                 </div>
                             </li>
-                        }
+                        @* } *@
                     </ul>
                 </div>
             </div>
